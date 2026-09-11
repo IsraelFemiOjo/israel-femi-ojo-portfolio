@@ -3,123 +3,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unabyss Onboarding Review — Israel Femi-Ojo</title>
-  <meta name="description" content="An independent Unabyss product review that identified four onboarding and product-copy problems during a real setup attempt.">
+  <meta name="theme-color" content="#f1f1ee">
+  <title>AI Memory Tool Onboarding Review | Israel Femi-Ojo</title>
+  <meta name="description" content="An independent product review that found four onboarding and product-copy problems during a real setup attempt.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body class="inner-page">
+<body class="case-page memory-case">
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip" href="#main">Skip to case study</a>
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
   <header class="site-header">
     <nav class="nav shell" aria-label="Primary navigation">
-      <a class="brand" href="index.html" aria-label="Israel Femi-Ojo, home"><img src="assets/ifo-logo.png" alt="" width="1152" height="537"></a>
-      <div class="nav-links">
-        <a href="index.html#work">Work</a>
-        <a href="content.html">Content</a>
-        <a href="index.html#proof">Proof</a>
-        <a class="contact-link" href="mailto:israelfemiojo9@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
-      </div>
+      <a class="brand" href="index.html" aria-label="Israel Femi-Ojo, home">
+        <span class="brand-mark" aria-hidden="true">IF</span>
+        <span class="brand-name">Israel Femi-Ojo</span>
+      </a>
+      <div class="nav-links"><a href="index.html#work">Work</a><a href="index.html#about">About</a></div>
+      <a class="nav-contact" href="mailto:israelfemiojo9@gmail.com">Let’s talk
+        <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8"/></svg>
+      </a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="page-hero case-page-hero unabyss-hero">
+    <section class="case-hero shell">
+      <a class="back-link" href="index.html#work">
+        <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M15 9H3M7.5 4.5 3 9l4.5 4.5"/></svg>
+        Selected work
+      </a>
+      <div class="case-heading" data-reveal>
+        <p class="eyebrow">Independent product research · 2026</p>
+        <h1>Where an AI memory tool lost a new user.</h1>
+        <p>I planned to test context separation. The setup failure became the more useful finding.</p>
+      </div>
+      <div class="case-meta" data-reveal data-delay="1">
+        <div><span>Environment</span><strong>Fresh Notion and Gmail</strong></div>
+        <div><span>Session</span><strong>About two hours</strong></div>
+        <div><span>Observed</span><strong>4 abandonment points</strong></div>
+        <div><span>Outcome</span><strong>Founder-confirmed findings</strong></div>
+      </div>
+    </section>
+
+    <section class="memory-cover shell" data-reveal>
+      <div class="memory-dashboard">
+        <div class="memory-title"><span>Observed product state</span><span>Fresh account</span></div>
+        <div class="memory-count"><strong>0</strong><span>memories stored</span></div>
+        <div class="memory-saved"><span>Time saved</span><strong>14 minutes</strong></div>
+        <div class="memory-status"><span class="status-copy"><i aria-hidden="true"></i>All set</span><span>Import not complete</span></div>
+      </div>
+      <div class="memory-caption"><span>The promise</span><strong>Ready to use.</strong><span>The evidence</span><strong>Nothing imported.</strong></div>
+    </section>
+
+    <section class="case-section shell" id="plan">
+      <div class="case-label" data-reveal><span>01</span><p>Original test</p></div>
+      <div class="case-copy" data-reveal data-delay="1">
+        <h2>Would one brand voice leak into another?</h2>
+        <p class="lead-copy">I work across accounts with writing rules that often conflict. The product promised to keep each client’s context separate.</p>
+        <p>The plan was simple: build two opposite brand profiles, generate under each one, then switch between Claude and ChatGPT. I never reached that stage.</p>
+      </div>
+    </section>
+
+    <section class="method-band memory-band">
       <div class="shell">
-        <a class="back" href="index.html#work"><span aria-hidden="true">←</span> Back to selected work</a>
-        <div class="page-hero-grid">
-          <p class="overline">Independent product research · 2026</p>
-          <div data-reveal>
-            <h1>Where Unabyss lost a new user.</h1>
-            <p class="page-deck">I planned to test whether two conflicting brand profiles stayed separate across AI tools. I never reached that test. The roadblock became the more useful finding.</p>
-          </div>
-        </div>
-        <div class="case-facts" data-reveal>
-          <div class="fact"><b>Environment</b><span>Fresh Notion and Gmail</span></div>
-          <div class="fact"><b>Session</b><span>About two hours</span></div>
-          <div class="fact"><b>Observed</b><span>4 abandonment points</span></div>
-          <div class="fact"><b>Outcome</b><span>Founder-confirmed findings</span></div>
+        <div class="case-label case-label-light" data-reveal><span>02</span><p>What happened</p></div>
+        <div class="failure-line" data-reveal data-delay="1">
+          <div><span>01</span><strong>Connected</strong><p>Notion linked successfully.</p></div>
+          <div><span>02</span><strong>Marked ready</strong><p>The product said setup was complete.</p></div>
+          <div><span>03</span><strong>Asked for facts</strong><p>Three answers came back “restricted.”</p></div>
+          <div><span>04</span><strong>Checked the vault</strong><p>Page bodies had never arrived.</p></div>
         </div>
       </div>
     </section>
 
-    <div class="case-body shell">
-      <nav class="case-nav" aria-label="Case study sections">
-        <a href="#plan">Original test</a>
-        <a href="#failure">What failed</a>
-        <a href="#diagnosis">Diagnosis</a>
-        <a href="#recommendations">Recommendations</a>
-        <a href="#validation">Validation</a>
-      </nav>
-      <article class="case-content">
-        <section id="plan" data-reveal>
-          <p class="overline">Original test</p>
-          <h2>Would one brand voice leak into another?</h2>
-          <p>I work across accounts with rules that sometimes contradict each other. Unabyss promises a context layer that can carry a person’s working memory across AI tools, and its agency positioning made context separation the feature I actually wanted to test.</p>
-          <p>The plan was to create two profiles with opposing writing rules, generate content under each one, then switch between Claude and ChatGPT to see whether the separation held.</p>
-        </section>
+    <section class="case-section shell" id="diagnosis">
+      <div class="case-label" data-reveal><span>03</span><p>Diagnosis</p></div>
+      <div class="case-copy" data-reveal data-delay="1">
+        <h2>Four messages pushed the user the wrong way.</h2>
+        <div class="finding-list">
+          <article><span>01</span><div><h3>“Restricted” hid the real state.</h3><p>It sounded like a permission problem. The information had never been imported.</p></div></article>
+          <article><span>02</span><div><h3>“All set” appeared too early.</h3><p>A successful connection was presented as a successful import.</p></div></article>
+          <article><span>03</span><div><h3>“Time saved” had no evidence.</h3><p>The dashboard showed saved time while the memory count stayed at zero.</p></div></article>
+          <article><span>04</span><div><h3>Metadata became a false profile.</h3><p>The system inferred a working style from schema and sample rows, not the notes I wrote.</p></div></article>
+        </div>
+      </div>
+    </section>
 
-        <section id="failure" data-reveal>
-          <p class="overline">What failed</p>
-          <h2>The vault said it was ready. It held nothing.</h2>
-          <p>Setup ended with a message saying the product was ready to use. The dashboard showed zero memories stored, while displaying 14 minutes saved beside it.</p>
-          <p>I added four Notion notes and asked for three facts written inside one of them. The tool returned “restricted” for all three. That sent me into permissions and filters for roughly an hour.</p>
-          <div class="error-record" role="img" aria-label="Test record showing that the product returned a restricted response without identifying whether the requested information was missing or filtered">
-            <div class="record-bar"><span></span><span></span><span></span><b>Test record · retrieval</b></div>
-            <p class="record-prompt">Asked: job title, city and X handle</p>
-            <div class="record-output"><small>RETURNED STATE</small><strong>“That information is restricted on this token.”</strong></div>
-            <div class="record-change"><span>Filters on</span><b>Restricted</b><span>Filters off</span><b>Facts missing</b></div>
-            <p class="record-caption">One message made two different product states look like the same problem.</p>
+    <section class="recommendation-section">
+      <div class="shell case-section">
+        <div class="case-label" data-reveal><span>04</span><p>Recommendations</p></div>
+        <div class="case-copy" data-reveal data-delay="1">
+          <h2>Three copy fixes. One product fix.</h2>
+          <div class="recommendation-grid">
+            <article><span>Message</span><p>Replace “restricted” with a neutral “nothing found” state and name the active filters.</p></article>
+            <article><span>Setup</span><p>Confirm the connection first. Call setup complete only after content arrives.</p></article>
+            <article><span>Metric</span><p>Hide time saved until the product has retrieved something.</p></article>
+            <article class="recommendation-primary"><span>Product</span><p>Import page bodies, not only titles and schema.</p></article>
           </div>
-          <p>With the filters turned off, the answer changed: the facts were not restricted; they simply had not been imported. Page titles and database schema had arrived, but the page bodies had not.</p>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <section id="diagnosis" data-reveal>
-          <p class="overline">Diagnosis</p>
-          <h2>Four product messages pushed a new user in the wrong direction.</h2>
-          <div class="finding"><strong>1. “Restricted” hid the real state</strong>The message sounded like a permission problem without saying a filter was involved—or that the information might not exist in the vault at all.</div>
-          <div class="finding"><strong>2. “All set” appeared too early</strong>A successful connection was presented as a successful import.</div>
-          <div class="finding"><strong>3. “Time saved” had no evidence</strong>The dashboard showed saved time while the memory count remained zero.</div>
-          <div class="finding"><strong>4. Metadata became a false profile</strong>The system inferred a working style and active projects from Notion’s schema and sample rows instead of the notes I wrote.</div>
-        </section>
+    <section class="case-section shell" id="validation">
+      <div class="case-label" data-reveal><span>05</span><p>Validation</p></div>
+      <div class="case-copy" data-reveal data-delay="1">
+        <div class="founder-quote">
+          <p>“The strongest report the team had received.”</p>
+          <span>Founder response, paraphrased to protect the private conversation</span>
+        </div>
+        <p class="lead-copy">The founder checked the logs, confirmed the findings and said the integration problems were already being fixed.</p>
+        <p>The original context-separation test remains unfinished. This case study does not claim that feature failed.</p>
+      </div>
+    </section>
 
-        <section id="recommendations" data-reveal>
-          <p class="overline">Recommendations</p>
-          <h2>Three copy changes, one larger product fix.</h2>
-          <ol class="recommendation-list">
-            <li><span>01</span><p>Replace the restricted message with a neutral “nothing was found” state and name the active filters.</p></li>
-            <li><span>02</span><p>Do not say setup is complete while the vault is empty. Confirm the connection, then point to the fastest import path.</p></li>
-            <li><span>03</span><p>Hide “time saved” until something has actually been retrieved.</p></li>
-            <li><span>04</span><p>Import page bodies, not only titles and schema.</p></li>
-          </ol>
-        </section>
-
-        <section id="validation" data-reveal>
-          <p class="overline">Validation</p>
-          <h2>The founder checked the logs.</h2>
-          <div class="quote">
-            <p>The founder reviewed the account logs, confirmed the integration fault and said the problems were already being fixed.</p>
-            <small>The written exchange is retained as private project evidence rather than published here.</small>
-          </div>
-          <p>The result showed that a blocked test can still reveal something commercially useful when the experience is documented carefully and reframed around the moment a customer nearly leaves.</p>
-          <p>The original context-separation test remains unfinished. This case study does not claim that the separation feature failed.</p>
-        </section>
-      </article>
-    </div>
+    <a class="next-case" href="content.html">
+      <div class="shell">
+        <span>Next project</span>
+        <strong>Turning product truth into content people pass on.</strong>
+        <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 23 23 5M9 5h14v14"/></svg>
+      </div>
+    </a>
   </main>
 
-  <section class="inner-contact">
-    <div class="shell inner-contact-grid">
-      <div data-reveal><p class="overline">Product research</p><h2>I look for the point where a user stops trusting the product.</h2></div>
-      <div data-reveal><a class="button button-light" href="mailto:israelfemiojo9@gmail.com">Email Israel <span aria-hidden="true">↗</span></a><a class="secondary-footer-link" href="ai-launch-brief.html">Previous case study <span aria-hidden="true">→</span></a></div>
-    </div>
-  </section>
-  <footer class="compact-footer shell"><span>© 2026 Israel Femi-Ojo</span><a href="index.html">Home</a><a href="https://x.com/israelfemiojo" target="_blank" rel="noreferrer">@israelfemiojo</a></footer>
-
+  <footer class="footer footer-light">
+    <div class="shell"><span>Israel Femi-Ojo</span><span>AI content strategy · product research</span><span>© 2026</span></div>
+  </footer>
   <script src="script.js" defer></script>
 </body>
 </html>
