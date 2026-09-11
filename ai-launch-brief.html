@@ -5,36 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Launch-Brief Evaluation — Israel Femi-Ojo</title>
   <meta name="description" content="A controlled test of whether three AI models could safely prepare public launch copy from conflicting company documents.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-  <a class="skip" href="#case">Skip to case study</a>
-  <header class="site-header"><nav class="nav shell" aria-label="Primary navigation"><a class="wordmark" href="index.html">Israel Femi-Ojo</a><div class="nav-links"><a href="index.html#work">Selected work</a><a class="contact-pill" href="mailto:israelfemiojo9@gmail.com">Contact</a></div></nav></header>
-  <main id="case">
-    <div class="case-hero shell">
-      <a class="back" href="index.html#work">← Back to selected work</a>
-      <p class="case-tag">Controlled AI evaluation · 2026</p>
-      <h1>Can AI safely prepare a startup launch brief?</h1>
-      <p class="case-deck">I gave three models the same six fictional company documents. The task was not simply to find contradictions. It was to keep disputed claims out of anything a writer might publish as fact.</p>
-      <div class="case-facts">
-        <div class="fact"><b>My role</b><span>Evaluation design and final review</span></div>
-        <div class="fact"><b>Inputs</b><span>6 company documents</span></div>
-        <div class="fact"><b>Test</b><span>10 planted issues</span></div>
-        <div class="fact"><b>Output</b><span>100-point comparison</span></div>
+<body class="inner-page">
+  <a class="skip" href="#main">Skip to case study</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Israel Femi-Ojo, home"><img src="assets/ifo-logo.png" alt="" width="1152" height="537"></a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="content.html">Content</a>
+        <a href="index.html#proof">Proof</a>
+        <a class="contact-link" href="mailto:israelfemiojo9@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
-    </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero case-page-hero">
+      <div class="shell">
+        <a class="back" href="index.html#work"><span aria-hidden="true">←</span> Back to selected work</a>
+        <div class="page-hero-grid">
+          <p class="overline">Controlled AI evaluation · 2026</p>
+          <div data-reveal>
+            <h1>Can AI safely prepare a startup launch brief?</h1>
+            <p class="page-deck">I gave three models the same six fictional company documents. The task was not simply to find contradictions. It was to keep disputed claims out of anything a writer might publish as fact.</p>
+          </div>
+        </div>
+        <div class="case-facts" data-reveal>
+          <div class="fact"><b>My role</b><span>Evaluation design and final review</span></div>
+          <div class="fact"><b>Inputs</b><span>6 company documents</span></div>
+          <div class="fact"><b>Test</b><span>10 planted issues</span></div>
+          <div class="fact"><b>Output</b><span>100-point comparison</span></div>
+        </div>
+      </div>
+    </section>
+
     <div class="case-body shell">
-      <nav class="case-nav" aria-label="Case study sections"><a href="#question">The question</a><a href="#method">Method</a><a href="#findings">Findings</a><a href="#result">Result</a><a href="#limits">Limits</a></nav>
+      <nav class="case-nav" aria-label="Case study sections">
+        <a href="#question">The question</a>
+        <a href="#method">Method</a>
+        <a href="#findings">Findings</a>
+        <a href="#result">Result</a>
+        <a href="#limits">Limits</a>
+      </nav>
       <article class="case-content">
-        <section id="question"><p class="section-kicker">The question</p><h2>Could a writer trust the “confirmed” section?</h2><p>Founders and content teams increasingly use AI to turn internal information into launch copy. Those internal documents do not always agree. A pricing sheet can conflict with a founder’s notes. Security documentation can contradict a customer-facing claim.</p><p>I wanted to know whether each model could identify those conflicts and produce a brief a writer could safely use without repeating disputed information.</p></section>
-        <section id="method"><p class="section-kicker">Method</p><h2>Same evidence. Same prompt. One rubric.</h2><p>I used a fictional startup to reduce the chance that a model already knew the company. Gemini created six source documents and a private answer key with ten planted issues, then took no part in the evaluation.</p><p>GPT 5.6 Sol Max, Fable 5 Max and Grok 4.5 Speed received the same documents and prompt. Their answers were anonymised before grading. AI graders assisted, but I checked every conclusion against the original documents and made the final assessment.</p><div class="finding"><strong>Why I restarted the first attempt</strong>I noticed that the model used to create the original materials later produced the strongest answer. I could not prove bias, but the setup raised a fairness question, so I treated it as a pilot and began again.</div></section>
-        <section id="findings"><p class="section-kicker">Findings</p><h2>Finding a contradiction is not enough.</h2><p>Fable and Grok identified major conflicts, then still placed some of the disputed information under confirmed facts. A writer scanning only that section could publish a claim the same response later admitted was uncertain.</p><h3>Enterprise usage</h3><p>The pricing document capped Enterprise generation at 250,000 words per month. The founder’s notes called it unlimited. All three models noticed. Fable still put the capped figure under confirmed pricing.</p><h3>Security and data processing</h3><p>The founder claimed customer data never reached external AI providers. The security document said some plans routed prompt payloads through OpenAI and Anthropic. None of that could safely be resolved without clarification.</p><h3>A problem the answer key missed</h3><p>The security document referred to a “Standard” plan that did not exist in pricing. GPT was the only model to ask whether it meant “Starter.” My review found that the answer key had silently assumed the two were the same.</p></section>
-        <section id="result"><p class="section-kicker">Result</p><h2>GPT was the safest in this one scenario.</h2><div class="scoreboard"><div class="score"><b>GPT 5.6 Sol Max</b><b>97/100</b></div><div class="score"><b>Fable 5 Max</b><b>92/100</b></div><div class="score"><b>Grok 4.5 Speed</b><b>80/100</b></div></div><div class="finding"><strong>Practical takeaway</strong>When reviewing an AI-generated brief, check what it labels as safe—not only whether it mentioned the problem somewhere.</div></section>
-        <section id="limits"><p class="section-kicker">Limits</p><h2>What the scores do not mean.</h2><p>This was one fictional company, one launch scenario and one attempt per model. The scores describe performance in this test; they are not a universal model ranking.</p><p>The more important result is the review method: define what “safe” means before testing, use the same evidence for every model, and return to the original sources before accepting any grader’s conclusion.</p></section>
+        <section id="question" data-reveal>
+          <p class="overline">The question</p>
+          <h2>Could a writer trust the “confirmed” section?</h2>
+          <p>Founders and content teams increasingly use AI to turn internal information into launch copy. Those internal documents do not always agree. A pricing sheet can conflict with a founder’s notes. Security documentation can contradict a customer-facing claim.</p>
+          <p>I wanted to know whether each model could identify those conflicts and produce a brief a writer could safely use without repeating disputed information.</p>
+        </section>
+
+        <section id="method" data-reveal>
+          <p class="overline">Method</p>
+          <h2>Same evidence. Same prompt. One rubric.</h2>
+          <p>I used a fictional startup to reduce the chance that a model already knew the company. Gemini created six source documents and a private answer key with ten planted issues, then took no part in the evaluation.</p>
+          <p>GPT 5.6 Sol Max, Fable 5 Max and Grok 4.5 Speed received the same documents and prompt. Their answers were anonymised before grading. AI graders assisted, but I checked every conclusion against the original documents and made the final assessment.</p>
+          <div class="finding"><strong>Why I restarted the first attempt</strong>I noticed that the model used to create the original materials later produced the strongest answer. I could not prove bias, but the setup raised a fairness question, so I treated it as a pilot and began again.</div>
+        </section>
+
+        <section id="findings" data-reveal>
+          <p class="overline">Findings</p>
+          <h2>Finding a contradiction is not enough.</h2>
+          <p>Fable and Grok identified major conflicts, then still placed some of the disputed information under confirmed facts. A writer scanning only that section could publish a claim the same response later admitted was uncertain.</p>
+          <div class="case-divider"></div>
+          <h3>Enterprise usage</h3>
+          <p>The pricing document capped Enterprise generation at 250,000 words per month. The founder’s notes called it unlimited. All three models noticed. Fable still put the capped figure under confirmed pricing.</p>
+          <h3>Security and data processing</h3>
+          <p>The founder claimed customer data never reached external AI providers. The security document said some plans routed prompt payloads through OpenAI and Anthropic. None of that could safely be resolved without clarification.</p>
+          <h3>A problem the answer key missed</h3>
+          <p>The security document referred to a “Standard” plan that did not exist in pricing. GPT was the only model to ask whether it meant “Starter.” My review found that the answer key had silently assumed the two were the same.</p>
+        </section>
+
+        <section id="result" data-reveal>
+          <p class="overline">Result</p>
+          <h2>GPT was the safest in this one scenario.</h2>
+          <div class="scoreboard">
+            <div class="score"><b>GPT 5.6 Sol Max</b><b>97/100</b></div>
+            <div class="score"><b>Fable 5 Max</b><b>92/100</b></div>
+            <div class="score"><b>Grok 4.5 Speed</b><b>80/100</b></div>
+          </div>
+          <div class="finding"><strong>Practical takeaway</strong>When reviewing an AI-generated brief, check what it labels as safe—not only whether it mentioned the problem somewhere.</div>
+        </section>
+
+        <section id="limits" data-reveal>
+          <p class="overline">Limits</p>
+          <h2>What the scores do not mean.</h2>
+          <p>This was one fictional company, one launch scenario and one attempt per model. The scores describe performance in this test; they are not a universal model ranking.</p>
+          <p>The more important result is the review method: define what “safe” means before testing, use the same evidence for every model, and return to the original sources before accepting any grader’s conclusion.</p>
+        </section>
       </article>
     </div>
   </main>
-  <section class="contact-section"><div class="shell contact-wrap"><div><p class="section-kicker">Need a similar review?</p><h2>I can test the workflow before the claim becomes content.</h2></div><div class="contact-links"><a href="mailto:israelfemiojo9@gmail.com">Email Israel</a><a href="index.html#work">More selected work</a></div></div></section>
+
+  <section class="inner-contact">
+    <div class="shell inner-contact-grid">
+      <div data-reveal><p class="overline">Need a similar review?</p><h2>I can test the workflow before the claim becomes content.</h2></div>
+      <div data-reveal><a class="button button-light" href="mailto:israelfemiojo9@gmail.com">Email Israel <span aria-hidden="true">↗</span></a><a class="secondary-footer-link" href="unabyss-review.html">Next case study <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+  <footer class="compact-footer shell"><span>© 2026 Israel Femi-Ojo</span><a href="index.html">Home</a><a href="https://x.com/israelfemiojo" target="_blank" rel="noreferrer">@israelfemiojo</a></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
-
