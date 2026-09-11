@@ -1,185 +1,165 @@
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = [...document.querySelectorAll('[data-reveal]')];
+  const motionItems = [...document.querySelectorAll(
+    '.project-visual, .video-card, .featured-sample, .recognition-shot, .reply-card, .analytics-band, .case-image, .error-record'
+  )];
+  const scenes = [...document.querySelectorAll('.scene, .sample-section, .case-content section')];
+  const scoreBars = document.querySelector('.score-bars');
+  const progressBar = document.querySelector('.scroll-progress span');
+  const movingRule = document.querySelector('.moving-rule');
+  const parallaxImages = [...document.querySelectorAll('.case-image img, .recognition-shot img, .analytics-frame img')];
+
+  const clamp = (minimum, value, maximum) => Math.min(maximum, Math.max(minimum, value));
 
   const showEverything = () => {
-    revealItems.forEach((item) => {
-      item.style.opacity = '1';
-      item.style.transform = 'none';
-      item.classList.add('is-visible');
-    });
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+    motionItems.forEach((item) => item.classList.add('is-motion-visible'));
+    scenes.forEach((scene) => scene.classList.add('scene-active'));
+    if (scoreBars) scoreBars.classList.add('is-visible');
   };
 
-  const startFallbackReveals = () => {
+  const observeOnce = (items, className, options = {}) => {
     if (!('IntersectionObserver' in window)) {
-      showEverything();
+      items.forEach((item) => item.classList.add(className));
       return;
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
+        entry.target.classList.add(className);
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    }, {
+      rootMargin: options.rootMargin || '0px 0px -11% 0px',
+      threshold: options.threshold || 0.08
+    });
 
-    revealItems.forEach((item) => observer.observe(item));
+    items.forEach((item) => observer.observe(item));
   };
 
-  const setProgress = () => {
-    const progressBar = document.querySelector('.scroll-progress span');
-    if (!progressBar) return;
-    const available = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = available > 0 ? window.scrollY / available : 0;
-    progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+  const animateHero = () => {
+    if (!document.querySelector('.hero-scene') || !Element.prototype.animate) return;
+
+    const animate = (selector, keyframes, options) => {
+      document.querySelectorAll(selector).forEach((item, index) => {
+        item.animate(keyframes, {
+          duration: options.duration,
+          delay: (options.delay || 0) + index * (options.stagger || 0),
+          easing: options.easing || 'cubic-bezier(.2,.72,.2,1)',
+          fill: 'both'
+        });
+      });
+    };
+
+    animate('.hero-overline', [
+      { opacity: 0, transform: 'translateY(16px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 520, delay: 80 });
+
+    animate('.hero-title', [
+      { opacity: 0, transform: 'translateY(46px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 880, delay: 180 });
+
+    animate('.hero-intro', [
+      { opacity: 0, transform: 'translateY(24px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 700, delay: 430 });
+
+    animate('.hero-actions > *', [
+      { opacity: 0, transform: 'translateY(18px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 560, delay: 560, stagger: 90 });
+
+    animate('.hero-note span', [
+      { opacity: 0, transform: 'translateY(12px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 480, delay: 710, stagger: 75 });
+
+    const wideScreen = window.matchMedia('(min-width: 761px)').matches;
+    animate('.portrait-stage', wideScreen ? [
+      { clipPath: 'inset(0 0 0 100%)' },
+      { clipPath: 'inset(0 0 0 0)' }
+    ] : [
+      { opacity: 0, transform: 'translateY(30px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 980, delay: 130 });
+
+    animate('.portrait', [
+      { opacity: 0, transform: 'translateY(34px) scale(.985)' },
+      { opacity: 1, transform: 'translateY(0) scale(1)' }
+    ], { duration: 850, delay: 520 });
+
+    animate('.portrait-index, .portrait-label, .scroll-cue', [
+      { opacity: 0, transform: 'translateY(12px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 480, delay: 840, stagger: 90 });
+  };
+
+  const observeScenes = () => {
+    if (!('IntersectionObserver' in window)) {
+      scenes.forEach((scene) => scene.classList.add('scene-active'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('scene-active', entry.isIntersecting);
+      });
+    }, { rootMargin: '-34% 0px -34% 0px', threshold: 0 });
+
+    scenes.forEach((scene) => observer.observe(scene));
+  };
+
+  let frameRequested = false;
+  const updateScrollState = () => {
+    frameRequested = false;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = documentHeight > 0 ? window.scrollY / documentHeight : 0;
+    if (progressBar) progressBar.style.transform = `scaleX(${clamp(0, progress, 1)})`;
+
+    if (movingRule) {
+      const bounds = movingRule.parentElement.getBoundingClientRect();
+      const sectionProgress = (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height * 0.55);
+      movingRule.style.transform = `scaleX(${clamp(0, sectionProgress, 1)})`;
+    }
+
+    if (window.innerWidth > 760) {
+      parallaxImages.forEach((image) => {
+        const bounds = image.parentElement.getBoundingClientRect();
+        if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
+        const offset = (bounds.top + bounds.height / 2 - window.innerHeight / 2) / window.innerHeight;
+        image.style.transform = `translate3d(0, ${clamp(-16, offset * -22, 16)}px, 0) scale(1.025)`;
+      });
+    }
+  };
+
+  const requestScrollUpdate = () => {
+    if (frameRequested) return;
+    frameRequested = true;
+    window.requestAnimationFrame(updateScrollState);
   };
 
   if (reducedMotion) {
     showEverything();
-    window.addEventListener('scroll', setProgress, { passive: true });
-    setProgress();
-    return;
-  }
-
-  if (!window.gsap || !window.ScrollTrigger) {
-    startFallbackReveals();
-    window.addEventListener('scroll', setProgress, { passive: true });
-    setProgress();
-    return;
-  }
-
-  const { gsap, ScrollTrigger } = window;
-  gsap.registerPlugin(ScrollTrigger);
-
-  const motion = gsap.matchMedia();
-
-  if (document.querySelector('.hero-scene')) {
-    const hero = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    hero
-      .from('.hero-overline', { opacity: 0, y: 18, duration: 0.55 })
-      .from('.hero-title', { opacity: 0, y: 46, duration: 0.9 }, '-=0.2')
-      .from('.hero-intro', { opacity: 0, y: 26, duration: 0.7 }, '-=0.48')
-      .from('.hero-actions > *', { opacity: 0, y: 20, duration: 0.55, stagger: 0.1 }, '-=0.38')
-      .from('.hero-note span', { opacity: 0, y: 12, duration: 0.45, stagger: 0.08 }, '-=0.25');
-
-    motion.add('(min-width: 761px)', () => {
-      hero
-        .from('.portrait-stage', { clipPath: 'inset(0 0 0 100%)', duration: 1.05 }, 0.1)
-        .from('.portrait-lines', { opacity: 0, duration: 0.7 }, 0.82)
-        .from('.portrait', { opacity: 0, y: 65, scale: 0.96, duration: 0.95 }, 0.52)
-        .from('.portrait-label', { opacity: 0, x: 30, duration: 0.55 }, 1.05)
-        .from('.scroll-cue', { opacity: 0, duration: 0.5 }, 1.2);
-    });
-
-    motion.add('(max-width: 760px)', () => {
-      hero
-        .from('.portrait-stage', { opacity: 0, y: 36, duration: 0.75 }, '-=0.2')
-        .from('.portrait', { opacity: 0, y: 42, duration: 0.72 }, '-=0.48');
-    });
-  }
-
-  revealItems.forEach((item) => {
-    gsap.to(item, {
-      opacity: 1,
-      y: 0,
-      duration: 0.78,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 84%',
-        once: true
-      }
-    });
-  });
-
-  motion.add('(min-width: 761px)', () => {
-    gsap.utils.toArray('.project-visual, .featured-sample, .recognition-shot, .analytics-band').forEach((item) => {
-      gsap.from(item, {
-        opacity: 0.72,
-        y: 58,
-        scale: 0.965,
-        clipPath: 'inset(7% 0 7% 0)',
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: item, start: 'top 82%', once: true }
-      });
-    });
-
-    gsap.utils.toArray('.case-image img, .recognition-shot img, .analytics-frame img').forEach((image) => {
-      gsap.fromTo(image,
-        { yPercent: -2 },
-        {
-          yPercent: 2,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: image.parentElement,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6
-          }
-        }
-      );
-    });
-
-    const videoImage = document.querySelector('.video-card img, .featured-media img');
-    if (videoImage) {
-      gsap.fromTo(videoImage,
-        { scale: 1.06, yPercent: -2 },
-        {
-          scale: 1.015,
-          yPercent: 2,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: videoImage.parentElement,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.65
-          }
-        }
-      );
+    if (progressBar) {
+      window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+      updateScrollState();
     }
-  });
-
-  const movingRule = document.querySelector('.moving-rule');
-  if (movingRule) {
-    gsap.fromTo(movingRule,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.work-intro',
-          start: 'top 78%',
-          end: 'bottom 35%',
-          scrub: 0.55
-        }
-      }
-    );
+    return;
   }
 
-  const scoreBars = document.querySelectorAll('.score-bars i');
-  if (scoreBars.length) {
-    gsap.fromTo(scoreBars,
-      { '--bar-scale': 0 },
-      {
-        '--bar-scale': 1,
-        duration: 0.95,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.score-bars', start: 'top 86%', once: true }
-      }
-    );
-  }
+  motionItems.forEach((item) => item.classList.add('motion-target'));
+  animateHero();
+  observeOnce(revealItems, 'is-visible');
+  observeOnce(motionItems, 'is-motion-visible', { rootMargin: '0px 0px -8% 0px' });
+  if (scoreBars) observeOnce([scoreBars], 'is-visible', { rootMargin: '0px 0px -14% 0px' });
+  observeScenes();
 
-  const progressBar = document.querySelector('.scroll-progress span');
-  if (progressBar) {
-    gsap.to(progressBar, {
-      scaleX: 1,
-      ease: 'none',
-      scrollTrigger: { start: 0, end: 'max', scrub: 0.2 }
-    });
-  }
-
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+  window.addEventListener('resize', requestScrollUpdate);
+  window.addEventListener('load', requestScrollUpdate, { once: true });
+  updateScrollState();
 })();
