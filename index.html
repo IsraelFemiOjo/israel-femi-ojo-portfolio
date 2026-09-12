@@ -82,7 +82,7 @@
 
   /* WORK + SKILLS */
   .viewhead{position:absolute;top:120px;left:var(--pad);font-size:13px;color:var(--muted);font-weight:500}
-  .back{position:absolute;left:var(--pad);bottom:28px}
+  .back{position:absolute;left:max(var(--pad),env(safe-area-inset-left));bottom:max(28px,env(safe-area-inset-bottom));z-index:15}
 
   #work{background:var(--band);overflow:hidden}
   .work-shell{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
@@ -113,7 +113,8 @@
   #skills{overflow:hidden}
   #skills::before{content:"";position:absolute;left:0;right:0;top:48%;bottom:0;background:var(--band)}
   .skills-scroll{position:absolute;inset:64px 0 0;overflow-y:auto;overscroll-behavior:contain;scroll-behavior:smooth;
-    padding:16px var(--pad) 28px;scrollbar-width:thin}
+    padding:16px var(--pad) calc(112px + env(safe-area-inset-bottom));
+    scroll-padding-bottom:calc(112px + env(safe-area-inset-bottom));scrollbar-width:thin}
   .skills-inner{width:100%;max-width:880px;margin:0 auto}
   .skills-page-title{font-size:13px;line-height:1.2;font-weight:500;color:var(--muted);margin-bottom:14px}
   .skills-block>h2,.experience-block>h2{font-family:"Instrument Serif",Georgia,serif;font-size:25px;
@@ -135,15 +136,20 @@
   .experience-heading time{flex:none;font-size:10.5px;line-height:1.4;color:var(--muted);white-space:nowrap}
   .experience-org{margin-top:2px;font-size:11.5px;line-height:1.35;color:var(--muted)}
   .experience-copy{margin-top:7px;font-size:12px;line-height:1.42;color:rgba(0,0,0,.68)}
-  .skills-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
-  .skills-action{padding:10px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:500;letter-spacing:-.01em}
+  /* Outside the scroller: these controls stay at the bottom of the active view. */
+  .skills-actions{position:absolute;left:max(var(--pad),env(safe-area-inset-left));
+    right:max(var(--pad),env(safe-area-inset-right));bottom:max(28px,env(safe-area-inset-bottom));
+    z-index:15;display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:10px;
+    pointer-events:none}
+  .skills-actions a{pointer-events:auto}
+  .skills-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+    padding:10px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:500;letter-spacing:-.01em}
   .js .skill-reveal{opacity:0;transform:translateY(30px);
     transition:opacity 520ms var(--ease),transform 680ms var(--ease);transition-delay:var(--reveal-delay,0ms)}
   .js .skill-reveal.is-revealed{opacity:1;transform:translateY(0)}
   .skills-block{--reveal-delay:40ms}
   .tools-panel{--reveal-delay:90ms}
   .experience-block{--reveal-delay:70ms}
-  .skills-actions{--reveal-delay:50ms}
   @media (max-width:374px){
     .figure{width:212px}
     .figure img{width:212px} .figure figcaption{width:212px;font-size:20px}
@@ -179,7 +185,7 @@
     .work-list{gap:14px}
     .work-link{min-height:58px;padding:15px 22px;gap:18px;font-size:25px}
     .work-number{font-size:12px}
-    .skills-scroll{inset:80px 0 0;padding-top:22px;padding-bottom:36px}
+    .skills-scroll{inset:80px 0 0;padding-top:22px}
     .skills-page-title{font-size:14px;margin-bottom:18px}
     .skills-block>h2,.experience-block>h2{font-size:30px;margin-bottom:11px}
     .skills-panel{padding:20px 22px}
@@ -195,7 +201,6 @@
     .experience-heading time{display:block;margin-top:4px;font-size:12px}
     .experience-org{font-size:13px;margin-top:3px}
     .experience-copy{font-size:13px;line-height:1.45;margin-top:0}
-    .skills-actions{margin-top:16px}
     .skills-action{padding:11px 18px;font-size:14px}
   }
   @media (min-width:1024px){
@@ -216,7 +221,7 @@
     .work-list{gap:16px}
     .work-link{min-height:66px;padding:17px 25px;gap:22px;font-size:30px}
     .work-number{font-size:13px}
-    .skills-scroll{inset:96px 0 0;padding-top:26px;padding-bottom:44px}
+    .skills-scroll{inset:96px 0 0;padding-top:26px}
     .skills-inner{max-width:1000px}
     .skills-page-title{margin-bottom:20px}
     .skills-block>h2,.experience-block>h2{font-size:34px}
@@ -343,12 +348,12 @@
           </div>
         </section>
 
-        <div class="skills-actions skill-reveal" data-skill-reveal>
-          <a class="glass skills-action" href="#home">Home</a>
-          <a class="glass skills-action" href="https://drive.google.com/drive/folders/1VUl01SHYMqkgs23RXbauGJxNHPzGBCvK" target="_blank" rel="noopener" aria-label="Open Israel Femi-Ojo's CV on Google Drive">View full CV</a>
-        </div>
       </div>
     </div>
+    <nav class="skills-actions" aria-label="Skills navigation">
+      <a class="glass skills-action" href="#home">Home</a>
+      <a class="glass skills-action" href="https://drive.google.com/drive/folders/1VUl01SHYMqkgs23RXbauGJxNHPzGBCvK" target="_blank" rel="noopener" aria-label="Open Israel Femi-Ojo's CV on Google Drive">View full CV</a>
+    </nav>
   </section>
 
 </main>
