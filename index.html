@@ -19,7 +19,7 @@
   h1:focus,.viewhead:focus{outline:none}
 
   /* the stage holds three full-screen views; only one is visible after a transition */
-  .stage{position:relative;width:100%;height:100dvh;overflow:hidden}
+  .stage{position:relative;width:100%;height:100dvh;overflow:hidden;overflow:clip}
   .view{position:absolute;inset:0;background:var(--paper);
     transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease);will-change:transform}
   .view[data-pos="home"]{transform:translate(0,0)}
@@ -322,6 +322,7 @@
 </main>
 <script>
 (function(){
+  const stage = document.getElementById('stage');
   const views = {home:document.getElementById('home'),work:document.getElementById('work'),skills:document.getElementById('skills')};
   // where each view sits relative to the others: work lives below home, skills lives to the right of home
   const layout = {
@@ -331,6 +332,7 @@
   };
   function show(name, push){
     if(!views[name]) name='home';
+    if(document.activeElement && document.activeElement!==document.body && document.activeElement.blur) document.activeElement.blur();
     const pos = layout[name];
     for(const k in views){
       views[k].dataset.pos = pos[k];
@@ -338,8 +340,12 @@
       views[k].inert = k!==name;
     }
     if(push!==false && location.hash !== '#'+name) history.pushState(null,'','#'+name);
-    const focusable = views[name].querySelector('h1,.viewhead');
-    if(focusable) focusable.setAttribute('tabindex','-1'), focusable.focus({preventScroll:true});
+    stage.scrollTop=0; stage.scrollLeft=0;
+    requestAnimationFrame(()=>{
+      const focusable = views[name].querySelector('h1,.viewhead');
+      if(focusable) focusable.setAttribute('tabindex','-1'), focusable.focus({preventScroll:true});
+      stage.scrollTop=0; stage.scrollLeft=0;
+    });
   }
   document.addEventListener('click', e=>{
     const a = e.target.closest('a[href^="#"]'); if(!a) return;
