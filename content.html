@@ -13,6 +13,7 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  scroll-padding-bottom: calc(112px + env(safe-area-inset-bottom));
 }
 
 body {
@@ -295,14 +296,29 @@ body {
 }
 
 #ifo-content-strategy .cs-footer {
-  padding: 20px 24px 42px;
+  position: fixed;
+  left: max(24px, env(safe-area-inset-left));
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(28px, env(safe-area-inset-bottom));
+  z-index: 30;
+  padding: 0;
+  pointer-events: none;
 }
 
 #ifo-content-strategy .cs-footer nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+#ifo-content-strategy .cs-footer a {
+  pointer-events: auto;
+}
+
+/* Keep the final caption and keyboard targets clear of the persistent controls. */
+#ifo-content-strategy main {
+  padding-bottom: calc(112px + env(safe-area-inset-bottom));
 }
 
 /* Everything is readable without JavaScript. Motion is opt-in. */
@@ -607,7 +623,7 @@ body {
     </main>
 
     <footer class="cs-footer">
-      <nav aria-label="Return navigation" data-motion="lift">
+      <nav aria-label="Return navigation">
         <a class="cs-link" href="index.html#home">Home</a>
         <a class="cs-link" href="index.html#work">Selected work</a>
       </nav>
