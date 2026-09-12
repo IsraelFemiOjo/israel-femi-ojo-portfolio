@@ -95,10 +95,10 @@
     cursor:pointer;touch-action:manipulation;border-color:rgba(0,0,0,.11);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.86),0 5px 14px rgba(0,0,0,.055)}
   .work-number{font-size:11px;line-height:1;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:0}
-  #work[data-pos="home"] .work-link{animation:work-drop 620ms cubic-bezier(.16,1,.3,1) 100ms both}
-  #work[data-pos="home"] li:nth-child(2) .work-link{animation-delay:160ms}
-  #work[data-pos="home"] li:nth-child(3) .work-link{animation-delay:220ms}
-  #work[data-pos="home"] li:nth-child(4) .work-link{animation-delay:280ms}
+  .work-intro #work[data-pos="home"] .work-link{animation:work-drop 620ms cubic-bezier(.16,1,.3,1) 100ms both}
+  .work-intro #work[data-pos="home"] li:nth-child(2) .work-link{animation-delay:160ms}
+  .work-intro #work[data-pos="home"] li:nth-child(3) .work-link{animation-delay:220ms}
+  .work-intro #work[data-pos="home"] li:nth-child(4) .work-link{animation-delay:280ms}
   @keyframes work-drop{
     0%{opacity:0;transform:translateY(-70px) scale(.95)}
     68%{opacity:1;transform:translateY(5px) scale(1.01)}
@@ -361,6 +361,8 @@
   const skillsScroll = document.querySelector('.skills-scroll');
   const skillReveals = [...document.querySelectorAll('[data-skill-reveal]')];
   let skillObserver;
+  let homeIntroTimer;
+  let workIntroTimer;
 
   if(!reduceMotion && 'IntersectionObserver' in window){
     skillObserver = new IntersectionObserver(entries=>{
@@ -382,6 +384,22 @@
     });
     requestAnimationFrame(()=>skillReveals.forEach(item=>skillObserver.observe(item)));
   }
+  function animateHome(){
+    if(reduceMotion) return;
+    window.clearTimeout(homeIntroTimer);
+    document.body.classList.remove('home-intro');
+    void views.home.offsetWidth;
+    document.body.classList.add('home-intro');
+    homeIntroTimer=window.setTimeout(()=>document.body.classList.remove('home-intro'),1400);
+  }
+  function animateWork(){
+    if(reduceMotion) return;
+    window.clearTimeout(workIntroTimer);
+    document.body.classList.remove('work-intro');
+    void views.work.offsetWidth;
+    document.body.classList.add('work-intro');
+    workIntroTimer=window.setTimeout(()=>document.body.classList.remove('work-intro'),1100);
+  }
   // where each view sits relative to the others: work lives below home, skills lives to the right of home
   const layout = {
     home:  {home:'home', work:'below', skills:'right'},
@@ -397,7 +415,17 @@
       views[k].setAttribute('aria-hidden', k===name ? 'false' : 'true');
       views[k].inert = k!==name;
     }
+    if(name!=='home'){
+      window.clearTimeout(homeIntroTimer);
+      document.body.classList.remove('home-intro');
+    }
+    if(name!=='work'){
+      window.clearTimeout(workIntroTimer);
+      document.body.classList.remove('work-intro');
+    }
     if(push!==false && location.hash !== '#'+name) history.pushState(null,'','#'+name);
+    if(name==='home') animateHome();
+    if(name==='work') animateWork();
     if(name==='skills') animateSkills();
     stage.scrollTop=0; stage.scrollLeft=0;
     requestAnimationFrame(()=>{
@@ -414,7 +442,6 @@
   window.addEventListener('popstate', ()=>show(location.hash.slice(1)||'home', false));
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') show('home'); });
   show(location.hash.slice(1)||'home', false);
-  window.setTimeout(()=>document.body.classList.remove('home-intro'),1400);
 })();
 </script>
 </body></html>
