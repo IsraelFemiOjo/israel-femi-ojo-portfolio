@@ -229,6 +229,37 @@ body {
   color: var(--lb-muted);
 }
 
+#ifo-launch-brief .lb-skills {
+  padding: 28px 20px 16px;
+}
+
+#ifo-launch-brief .lb-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 22px;
+  width: fit-content;
+  max-width: min(100%, 660px);
+  margin: 18px auto 0;
+  padding: 20px 24px;
+  border: 1px solid var(--lb-border);
+  border-radius: 24px;
+  background: var(--lb-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 6px 18px rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  list-style: none;
+  color: var(--lb-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#ifo-launch-brief .lb-skills-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 #ifo-launch-brief .lb-link {
   display: inline-flex;
   align-items: center;
@@ -442,6 +473,18 @@ body {
       <section class="lb-conclusion" aria-labelledby="lb-conclusion-title">
         <h2 class="lb-heading" id="lb-conclusion-title" data-motion="heading">Conclusion</h2>
         <p data-motion="lift">GPT handled the conflicting documents most accurately in this test. The comparison used one scenario and one run per model.</p>
+      </section>
+
+      <section class="lb-skills" aria-labelledby="lb-skills-title">
+        <h2 class="lb-heading" id="lb-skills-title" data-motion="heading">Skills applied</h2>
+        <ul class="lb-skills-list" role="list" data-motion="lift">
+          <li>Test design</li>
+          <li>AI model evaluation</li>
+          <li>Claim verification</li>
+          <li>Editorial judgement</li>
+          <li>Results analysis</li>
+          <li>Report writing</li>
+        </ul>
       </section>
     </main>
 
