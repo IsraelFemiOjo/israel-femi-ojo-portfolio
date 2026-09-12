@@ -74,7 +74,14 @@ body {
 }
 
 #ifo-launch-brief .lb-intro {
-  padding: 28px 20px 24px;
+  /* The intro owns the first screen; Results begins after it, not halfway through it. */
+  min-height: calc(100svh - 64px);
+  min-height: calc(100dvh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px calc(104px + env(safe-area-inset-bottom));
 }
 
 #ifo-launch-brief .lb-heading,
@@ -106,23 +113,29 @@ body {
 }
 
 #ifo-launch-brief .lb-objective {
-  max-width: 46ch;
-  margin: 20px auto 0;
+  max-width: 50ch;
+  margin: 28px auto 0;
+  font-size: 16px;
 }
 
 #ifo-launch-brief .lb-objective h2 {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 #ifo-launch-brief .lb-objective p {
-  margin: 7px auto 0;
+  margin: 9px auto 0;
   color: var(--lb-muted);
 }
 
 #ifo-launch-brief .lb-method {
-  margin-top: 24px;
+  margin-top: 32px;
+  width: 100%;
+}
+
+#ifo-launch-brief .lb-method .lb-heading {
+  font-size: 18px;
 }
 
 #ifo-launch-brief .lb-setup,
@@ -137,6 +150,16 @@ body {
 #ifo-launch-brief .lb-setup li + li,
 #ifo-launch-brief .lb-findings li + li {
   margin-top: 8px;
+}
+
+#ifo-launch-brief .lb-setup {
+  margin-top: 19px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#ifo-launch-brief .lb-setup li + li {
+  margin-top: 12px;
 }
 
 #ifo-launch-brief .lb-setup li::before,
@@ -328,8 +351,12 @@ body {
 
 @media (min-width: 560px) {
   #ifo-launch-brief .lb-intro {
-    padding-top: 32px;
-    padding-bottom: 28px;
+    padding-top: 48px;
+  }
+
+  #ifo-launch-brief .lb-objective,
+  #ifo-launch-brief .lb-setup {
+    font-size: 17px;
   }
 
   #ifo-launch-brief .lb-results {
