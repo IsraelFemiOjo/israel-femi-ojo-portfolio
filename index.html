@@ -1,111 +1,354 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f4f1">
-  <title>Israel Femi-Ojo | AI Content Strategist</title>
-  <meta name="description" content="Selected product research, launch content and campaign work by AI content strategist Israel Femi-Ojo.">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=4">
-</head>
-<body class="home-page">
-  <a class="skip-link" href="#main">Skip to work</a>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Israel Femi-Ojo</title>
+<meta name="description" content="Israel Femi-Ojo — AI content strategist working across product research, launch content, campaigns and social media management.">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111; --muted:rgba(0,0,0,.56); --paper:#fff; --band:#f2f2f2; --line:rgba(0,0,0,.08);
+    --glass:rgba(255,255,255,.62); --r-pill:999px; --r-card:18px;
+    --pad:20px; --dur:560ms; --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--paper);color:var(--ink);
+    font-family:"Instrument Sans","Liberation Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  h1:focus,.viewhead:focus{outline:none}
 
-  <div class="home-layout">
-    <aside class="profile-panel" aria-label="Introduction">
-      <header class="profile-header">
-        <a class="wordmark" href="index.html">Israel Femi-Ojo</a>
-        <nav class="profile-nav" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="https://x.com/israelfemiojo" target="_blank" rel="noreferrer">X</a>
-        </nav>
-      </header>
+  /* the stage holds three full-screen views; only one is visible after a transition */
+  .stage{position:relative;width:100%;height:100dvh;overflow:hidden}
+  .view{position:absolute;inset:0;background:var(--paper);
+    transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease);will-change:transform}
+  .view[data-pos="home"]{transform:translate(0,0)}
+  .view[data-pos="below"]{transform:translate(0,100%)}
+  .view[data-pos="right"]{transform:translate(100%,0)}
+  .view[data-pos="above"]{transform:translate(0,-100%)}
+  .view[data-pos="left"]{transform:translate(-100%,0)}
+  .view[aria-hidden="true"]{pointer-events:none}
+  @media (prefers-reduced-motion:reduce){
+    .view{transition:none}
+    .view[aria-hidden="true"]{opacity:0}
+    .glass,.work-link{animation:none!important;transition:none}
+  }
 
-      <div class="profile-copy" data-reveal>
-        <p class="location">Abuja, Nigeria · Remote</p>
-        <h1>AI content<br>strategist.</h1>
-        <p class="profile-line">Product research, launch content and campaigns.</p>
-        <div class="profile-actions">
-          <a class="glass-button" href="#work" data-magnetic>
-            View work
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M4.5 11.5 10 17l5.5-5.5"/></svg>
-          </a>
-          <a class="plain-link" href="mailto:israelfemiojo9@gmail.com">Email me</a>
+  .glass{-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+    background:var(--glass);border:1px solid var(--line);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 1px 2px rgba(0,0,0,.04);
+    transition:background 160ms,transform 120ms}
+  .glass:hover{background:rgba(255,255,255,.8)}
+  .glass:active{transform:scale(.98);background:rgba(255,255,255,.9)}
+
+  /* nav */
+  .nav{position:absolute;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);z-index:5}
+  .logo img{height:30px;display:block}
+  .socials{display:flex;gap:8px}
+  .icon{width:36px;height:36px;border-radius:var(--r-pill);display:grid;place-items:center;font-weight:600;font-size:14px}
+  .icon svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.6}
+
+  /* HOME */
+  #home .band{position:absolute;left:0;right:0;top:67%;bottom:0;background:var(--band)}
+  .hero{position:absolute;left:0;right:0;top:110px;height:calc(67% - 110px)}
+  .copy{position:absolute;left:var(--pad);bottom:46px;width:148px}
+  .copy h1{font-size:29px;line-height:1.06;font-weight:600;letter-spacing:-.025em}
+  .copy p{margin-top:14px;font-size:14.5px;line-height:1.42;color:var(--muted)}
+  .figure{position:absolute;right:-4px;bottom:0;width:236px;display:flex;flex-direction:column;align-items:center}
+  .figure img{width:236px;height:auto;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,#000 88%,transparent 100%)}
+  .figure figcaption{margin-top:8px;font-family:"Instrument Serif",Georgia,serif;font-size:22px;font-weight:400;letter-spacing:-.01em;text-align:center;width:236px}
+  .actions{position:absolute;left:var(--pad);right:var(--pad);top:67%;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px}
+  .pill{padding:11px 18px;border-radius:var(--r-pill);font-size:15px;font-weight:500;letter-spacing:-.01em;display:inline-block}
+
+  /* WORK + SKILLS */
+  .viewhead{position:absolute;top:120px;left:var(--pad);font-size:13px;color:var(--muted);font-weight:500}
+  .back{position:absolute;left:var(--pad);bottom:28px}
+
+  #work{background:var(--band);overflow:hidden}
+  .work-shell{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    align-items:center;padding:0 var(--pad)}
+  .work-inner{width:100%;max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .work-title{font-size:13px;line-height:1.2;font-weight:500;color:var(--muted);margin-bottom:20px}
+  .work-list{display:flex;flex-direction:column;align-items:center;gap:11px;list-style:none}
+  .work-link{display:inline-flex;align-items:center;gap:14px;min-height:48px;padding:12px 18px;
+    border-radius:var(--r-pill);font-size:19px;line-height:1.1;font-weight:500;letter-spacing:-.02em;
+    cursor:pointer;touch-action:manipulation;border-color:rgba(0,0,0,.11);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.86),0 5px 14px rgba(0,0,0,.055)}
+  .work-number{font-size:11px;line-height:1;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:0}
+  #work[data-pos="home"] .work-link{animation:work-settle 420ms var(--ease) both}
+  #work[data-pos="home"] li:nth-child(2) .work-link{animation-delay:45ms}
+  #work[data-pos="home"] li:nth-child(3) .work-link{animation-delay:90ms}
+  #work[data-pos="home"] li:nth-child(4) .work-link{animation-delay:135ms}
+  @keyframes work-settle{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  @media (hover:hover){
+    .work-link:hover{transform:translateY(-2px);border-color:rgba(0,0,0,.17);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 8px 20px rgba(0,0,0,.075)}
+  }
+  .work-link:active{transform:translateY(1px) scale(.985);box-shadow:inset 0 1px 2px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.045)}
+
+  #skills{overflow:hidden}
+  #skills::before{content:"";position:absolute;left:0;right:0;top:48%;bottom:0;background:var(--band)}
+  .skills-scroll{position:absolute;inset:64px 0 0;overflow-y:auto;overscroll-behavior:contain;
+    padding:16px var(--pad) 28px;scrollbar-width:thin}
+  .skills-inner{width:100%;max-width:880px;margin:0 auto}
+  .skills-page-title{font-size:13px;line-height:1.2;font-weight:500;color:var(--muted);margin-bottom:14px}
+  .skills-block>h2,.experience-block>h2{font-family:"Instrument Serif",Georgia,serif;font-size:25px;
+    line-height:1;font-weight:400;letter-spacing:-.015em;margin:0 0 9px}
+  .skills-panel,.tools-panel,.experience-panel{border-radius:var(--r-card)}
+  .skills-panel{padding:16px 17px}
+  .skills-list{display:block;list-style:none;font-size:12.5px;line-height:1.62}
+  .skills-list li{display:inline}
+  .skills-list li:not(:last-child)::after{content:" · ";color:rgba(0,0,0,.34)}
+  .tools-panel{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;margin-top:10px;padding:13px 16px}
+  .tools-panel h2{font-size:12px;line-height:1.45;font-weight:600}
+  .tools-panel p{font-size:12.5px;line-height:1.45;color:var(--muted)}
+  .experience-block{margin-top:19px}
+  .experience-panel{padding:4px 17px}
+  .experience-entry{padding:14px 0}
+  .experience-entry+.experience-entry{border-top:1px solid var(--line)}
+  .experience-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .experience-heading h3{font-size:13px;line-height:1.28;font-weight:600;letter-spacing:-.01em}
+  .experience-heading time{flex:none;font-size:10.5px;line-height:1.4;color:var(--muted);white-space:nowrap}
+  .experience-org{margin-top:2px;font-size:11.5px;line-height:1.35;color:var(--muted)}
+  .experience-copy{margin-top:7px;font-size:12px;line-height:1.42;color:rgba(0,0,0,.68)}
+  .skills-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .skills-action{padding:10px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:500;letter-spacing:-.01em}
+  @media (max-width:374px){
+    .figure{width:212px}
+    .figure img{width:212px} .figure figcaption{width:212px;font-size:20px}
+    .copy{width:140px} .copy h1{font-size:26.5px} .copy p{font-size:14px}
+    .skills-scroll{padding-left:16px;padding-right:16px}
+    .skills-list{font-size:12px}
+    .experience-copy{font-size:11.5px}
+    .work-shell{padding-left:16px;padding-right:16px}
+    .work-link{font-size:18px;padding-left:16px;padding-right:16px}
+  }
+
+  /* ---------- wider than a phone: pull the hero into a centred column ---------- */
+  @media (min-width:600px){
+    :root{--pad:32px}
+    .nav{height:80px}
+    .logo img{height:34px}
+    .icon{width:40px;height:40px}
+    #home .band{top:70%}
+    .hero{position:absolute;left:0;right:0;top:80px;height:calc(70% - 80px);
+      display:grid;grid-template-columns:minmax(260px,1fr) auto;align-items:end;column-gap:40px;
+      width:min(880px,100% - 2*var(--pad));margin:0 auto}
+    .copy{position:static;width:auto;max-width:34ch;padding-bottom:56px}
+    .copy h1{font-size:44px}
+    .copy p{font-size:18px;margin-top:18px}
+    .figure{position:static;width:auto;justify-self:end}
+    .figure img{width:auto;height:clamp(320px,calc(70vh - 190px),520px)}
+    .figure figcaption{width:auto;font-size:26px}
+    .actions{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;left:0;right:0;top:70%;
+      width:min(880px,100% - 2*var(--pad));margin:0 auto}
+    .pill{padding:13px 22px;font-size:16px}
+    .work-shell{inset:0;padding:0 var(--pad)}
+    .work-title{font-size:14px;margin-bottom:26px}
+    .work-list{gap:14px}
+    .work-link{min-height:58px;padding:15px 22px;gap:18px;font-size:25px}
+    .work-number{font-size:12px}
+    .skills-scroll{inset:80px 0 0;padding-top:22px;padding-bottom:36px}
+    .skills-page-title{font-size:14px;margin-bottom:18px}
+    .skills-block>h2,.experience-block>h2{font-size:30px;margin-bottom:11px}
+    .skills-panel{padding:20px 22px}
+    .skills-list{font-size:14px;line-height:1.7}
+    .tools-panel{grid-template-columns:74px 1fr;padding:15px 21px;margin-top:12px}
+    .tools-panel h2,.tools-panel p{font-size:14px}
+    .experience-block{margin-top:24px}
+    .experience-panel{padding:2px 22px}
+    .experience-entry{display:grid;grid-template-columns:minmax(220px,.85fr) minmax(280px,1.35fr);
+      gap:22px;align-items:start;padding:17px 0}
+    .experience-heading{display:block}
+    .experience-heading h3{font-size:14px}
+    .experience-heading time{display:block;margin-top:4px;font-size:12px}
+    .experience-org{font-size:13px;margin-top:3px}
+    .experience-copy{font-size:13px;line-height:1.45;margin-top:0}
+    .skills-actions{margin-top:16px}
+    .skills-action{padding:11px 18px;font-size:14px}
+  }
+  @media (min-width:1024px){
+    :root{--pad:48px}
+    .nav{height:96px}
+    .logo img{height:38px}
+    .hero{width:min(1120px,100% - 2*var(--pad));column-gap:64px;top:96px;height:calc(70% - 96px)}
+    .copy h1{font-size:60px}
+    .copy p{font-size:20px;max-width:30ch}
+    .copy{padding-bottom:64px}
+    .figure img{height:clamp(380px,calc(70vh - 210px),640px)}
+    .figure figcaption{font-size:30px}
+    .actions{width:min(1120px,100% - 2*var(--pad))}
+    .pill{padding:14px 24px;font-size:17px}
+    .work-shell{inset:0;padding:0 var(--pad)}
+    .work-inner{max-width:1000px}
+    .work-title{margin-bottom:30px}
+    .work-list{gap:16px}
+    .work-link{min-height:66px;padding:17px 25px;gap:22px;font-size:30px}
+    .work-number{font-size:13px}
+    .skills-scroll{inset:96px 0 0;padding-top:26px;padding-bottom:44px}
+    .skills-inner{max-width:1000px}
+    .skills-page-title{margin-bottom:20px}
+    .skills-block>h2,.experience-block>h2{font-size:34px}
+    .skills-panel{padding:23px 26px}
+    .skills-list{font-size:14.5px}
+    .tools-panel{padding:17px 25px}
+    .experience-panel{padding-left:26px;padding-right:26px}
+    .experience-entry{grid-template-columns:minmax(250px,.85fr) minmax(360px,1.5fr);padding:19px 0}
+  }
+</style></head><body>
+<main class="stage" id="stage">
+
+  <section class="view" id="home" data-pos="home" aria-label="Home">
+    <div class="band"></div>
+    <nav class="nav">
+      <a class="logo" href="#home" aria-label="Home"><img src="assets/ifo-logo.svg" alt="IFO"></a>
+      <div class="socials">
+        <a class="glass icon" href="https://x.com/israelfemiojo" target="_blank" rel="noopener" aria-label="X">X</a>
+        <a class="glass icon" href="https://www.linkedin.com/in/israel-femi-ojo-5b28092b1" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a class="glass icon" href="mailto:israelfemiojo9@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="copy">
+        <h1>AI Content Strategist.</h1>
+        <p>Product research, launch content, campaigns and social media management.</p>
+      </div>
+      <figure class="figure">
+        <img src="assets/israel-cutout.webp" alt="Israel Femi-Ojo">
+        <figcaption>Israel Femi-Ojo</figcaption>
+      </figure>
+    </div>
+    <div class="actions">
+      <a class="glass pill" href="#work">View work</a>
+      <a class="glass pill" href="#skills">Skills &amp; experience</a>
+    </div>
+  </section>
+
+  <section class="view" id="work" data-pos="below" aria-hidden="true" aria-label="Selected work" inert>
+    <nav class="nav"><a class="logo" href="#home" aria-label="Home"><img src="assets/ifo-logo.svg" alt="IFO"></a></nav>
+    <div class="work-shell">
+      <div class="work-inner">
+        <h1 class="work-title">Selected work</h1>
+        <ol class="work-list">
+          <li><a class="glass work-link" href="content.html" aria-label="Open the content strategy case study"><span class="work-number">01</span><span>Content strategy</span></a></li>
+          <li><a class="glass work-link" href="ai-launch-brief.html" aria-label="Open the AI launch brief case study"><span class="work-number">02</span><span>AI launch brief</span></a></li>
+          <li><a class="glass work-link" href="unabyss-review.html" aria-label="Open the Unabyss review case study"><span class="work-number">03</span><span>Unabyss review</span></a></li>
+          <li><a class="glass work-link" href="quso-review.html" aria-label="Open the Quso review case study"><span class="work-number">04</span><span>Quso review</span></a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="skills" data-pos="right" aria-hidden="true" aria-label="Skills and experience" inert>
+    <nav class="nav"><a class="logo" href="#home" aria-label="Home"><img src="assets/ifo-logo.svg" alt="IFO"></a></nav>
+    <div class="skills-scroll">
+      <div class="skills-inner">
+        <h1 class="skills-page-title">Skills &amp; experience</h1>
+
+        <section class="skills-block" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <div class="glass skills-panel">
+            <ul class="skills-list">
+              <li>Content strategy</li>
+              <li>Product research</li>
+              <li>X ghostwriting</li>
+              <li>Product messaging</li>
+              <li>Brand voice systems</li>
+              <li>Launch content</li>
+              <li>Sponsored campaigns</li>
+              <li>Campaign coordination</li>
+              <li>Video editing</li>
+              <li>Storytelling</li>
+              <li>Audience &amp; competitor research</li>
+              <li>Homepage &amp; ICP analysis</li>
+              <li>Fact-checking</li>
+              <li>AI evaluation</li>
+              <li>Publishing systems</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="glass tools-panel" aria-labelledby="tools-heading">
+          <h2 id="tools-heading">Tools</h2>
+          <p>Notion, Google Workspace, Microsoft Office, Typefully, Canva, CapCut, ChatGPT, Claude and Grok.</p>
+        </section>
+
+        <section class="experience-block" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Experience</h2>
+          <div class="glass experience-panel">
+            <article class="experience-entry">
+              <div>
+                <div class="experience-heading">
+                  <h3>Content Strategist &amp; X Ghostwriter</h3>
+                  <time datetime="2024">2024–present</time>
+                </div>
+                <p class="experience-org">The AI Colony · Remote</p>
+              </div>
+              <p class="experience-copy">Ghostwriting and content strategy for two AI and technology accounts serving audiences of 620K+ and 550K+, including launch and sponsored campaigns for Tripo AI, CapCut, HeyGen, Gamma AI and BytePlus/Seedance.</p>
+            </article>
+
+            <article class="experience-entry">
+              <div>
+                <div class="experience-heading">
+                  <h3>Market Research &amp; Newsletter Writer</h3>
+                  <time datetime="2025">2025–present</time>
+                </div>
+                <p class="experience-org">Solid Minerals Development Fund · Remote</p>
+              </div>
+              <p class="experience-copy">Weekly, source-attributed commodity analysis covering gold, silver, uranium and energy minerals for the Investment, Strategy &amp; Operations Department.</p>
+            </article>
+
+            <article class="experience-entry">
+              <div>
+                <div class="experience-heading">
+                  <h3>Independent Content Strategy &amp; AI Research</h3>
+                  <time datetime="2026">2026–present</time>
+                </div>
+                <p class="experience-org">Portfolio project</p>
+              </div>
+              <p class="experience-copy">Founder-facing product reviews, homepage analysis and controlled AI evaluations focused on clarity, evidence and claim consistency.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="skills-actions">
+          <a class="glass skills-action" href="#home">Home</a>
+          <a class="glass skills-action" href="https://drive.google.com/drive/folders/1VUl01SHYMqkgs23RXbauGJxNHPzGBCvK" target="_blank" rel="noopener" aria-label="Open Israel Femi-Ojo's CV on Google Drive">View full CV</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <footer class="profile-footer">
-        <span>Available for remote roles</span>
-        <a href="mailto:israelfemiojo9@gmail.com" aria-label="Email Israel Femi-Ojo">
-          Get in touch
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg>
-        </a>
-      </footer>
-    </aside>
-
-    <main class="visual-feed" id="main">
-      <section class="visual-panel portrait-panel" aria-label="Portrait of Israel Femi-Ojo">
-        <img class="portrait-cutout" src="assets/israel-cutout.webp" width="986" height="1594" alt="Israel Femi-Ojo wearing a suit">
-      </section>
-
-      <section class="visual-panel project-panel launch-panel" id="work" data-reveal>
-        <a class="panel-link" href="ai-launch-brief.html" aria-label="Read the AI launch brief case study">
-          <div class="panel-topline"><span>01 · Product research</span><span>2026</span></div>
-          <div class="launch-preview" aria-hidden="true">
-            <figure class="preview-card launch-conflict-card">
-              <img src="assets/launch-conflict.webp" width="1003" height="1568" alt="">
-            </figure>
-            <figure class="preview-card launch-score-card">
-              <img src="assets/launch-scorecard.webp" width="1440" height="960" alt="">
-            </figure>
-          </div>
-          <div class="panel-caption">
-            <div><h2>AI launch brief</h2><p>3 models. 6 documents. 10 conflicts.</p></div>
-            <span class="panel-arrow" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 18 18 4M8 4h10v10"/></svg></span>
-          </div>
-        </a>
-      </section>
-
-      <section class="visual-panel project-panel unabyss-panel" data-reveal>
-        <a class="panel-link" href="unabyss-review.html" aria-label="Read the Unabyss review">
-          <div class="panel-topline"><span>02 · Product review</span><span>2026</span></div>
-          <div class="unabyss-preview" aria-hidden="true">
-            <div class="memory-window">
-              <div class="memory-window-head"><span>Fresh Notion account</span><span class="connected-dot">Connected</span></div>
-              <div class="memory-zero"><strong>0</strong><span>memories imported</span></div>
-              <div class="memory-row"><span>Setup status</span><strong>All set</strong></div>
-              <div class="memory-row warning-row"><span>Import status</span><strong>Nothing found</strong></div>
-            </div>
-            <div class="issue-stack">
-              <span>Connection worked</span>
-              <span>Content did not import</span>
-              <span>Four issues found</span>
-            </div>
-          </div>
-          <div class="panel-caption dark-caption">
-            <div><h2>Unabyss review</h2><p>The connection worked. The content never imported.</p></div>
-            <span class="panel-arrow" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 18 18 4M8 4h10v10"/></svg></span>
-          </div>
-        </a>
-      </section>
-
-      <section class="visual-panel project-panel content-panel" data-reveal>
-        <a class="panel-link" href="content.html" aria-label="See Israel's content strategy work">
-          <div class="panel-topline"><span>03 · Content strategy</span><span>Selected work</span></div>
-          <div class="content-preview" aria-hidden="true">
-            <figure class="preview-card openai-card"><img src="assets/openai-message.jpg" width="842" height="1240" alt=""></figure>
-            <figure class="preview-card note-card"><img src="assets/content-note.webp" width="1440" height="810" alt=""></figure>
-          </div>
-          <div class="panel-caption dark-caption">
-            <div><h2>Content strategy</h2><p>Research, campaigns and publishing systems.</p></div>
-            <span class="panel-arrow" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4 18 18 4M8 4h10v10"/></svg></span>
-          </div>
-        </a>
-      </section>
-    </main>
-  </div>
-
-  <script src="script.js?v=4" defer></script>
-</body>
-</html>
+</main>
+<script>
+(function(){
+  const views = {home:document.getElementById('home'),work:document.getElementById('work'),skills:document.getElementById('skills')};
+  // where each view sits relative to the others: work lives below home, skills lives to the right of home
+  const layout = {
+    home:  {home:'home', work:'below', skills:'right'},
+    work:  {home:'above', work:'home', skills:'right'},
+    skills:{home:'left',  work:'below', skills:'home'}
+  };
+  function show(name, push){
+    if(!views[name]) name='home';
+    const pos = layout[name];
+    for(const k in views){
+      views[k].dataset.pos = pos[k];
+      views[k].setAttribute('aria-hidden', k===name ? 'false' : 'true');
+      views[k].inert = k!==name;
+    }
+    if(push!==false && location.hash !== '#'+name) history.pushState(null,'','#'+name);
+    const focusable = views[name].querySelector('h1,.viewhead');
+    if(focusable) focusable.setAttribute('tabindex','-1'), focusable.focus({preventScroll:true});
+  }
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('a[href^="#"]'); if(!a) return;
+    const name = a.getAttribute('href').slice(1);
+    if(views[name]){ e.preventDefault(); show(name); }
+  });
+  window.addEventListener('popstate', ()=>show(location.hash.slice(1)||'home', false));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') show('home'); });
+  show(location.hash.slice(1)||'home', false);
+})();
+</script>
+</body></html>
