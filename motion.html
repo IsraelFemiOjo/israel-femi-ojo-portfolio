@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motion and video — Israel Femi-Ojo</title>
+  <meta name="description" content="Short videos by Israel Femi-Ojo: AI explainers, product storytelling, motion design and UI animation made for X.">
+  <link rel="canonical" href="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/motion.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Israel Femi-Ojo">
+  <meta property="og:title" content="Motion and video — Israel Femi-Ojo">
+  <meta property="og:description" content="Short videos by Israel Femi-Ojo: AI explainers, product storytelling, motion design and UI animation made for X.">
+  <meta property="og:url" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/motion.html">
+  <meta property="og:image" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
+  <meta property="og:image:secure_url" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="864">
+  <meta property="og:image:alt" content="IFO logo in black, cream and orange.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@israelfemiojo">
+  <meta name="twitter:title" content="Motion and video — Israel Femi-Ojo">
+  <meta name="twitter:description" content="Short videos by Israel Femi-Ojo: AI explainers, product storytelling, motion design and UI animation made for X.">
+  <meta name="twitter:image" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
+  <meta name="twitter:image:alt" content="IFO logo in black, cream and orange.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-bottom: calc(112px + env(safe-area-inset-bottom));
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+}
+
+#ifo-content-strategy {
+  --cs-page: #fafafa;
+  --cs-band: #eff1f1;
+  --cs-ink: #171717;
+  --cs-muted: #626262;
+  --cs-border: rgba(24, 24, 24, 0.12);
+  --cs-glass: rgba(255, 255, 255, 0.69);
+  --cs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 100dvh;
+  background: var(--cs-page);
+  color: var(--cs-ink);
+  font-family: "Instrument Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+#ifo-content-strategy *,
+#ifo-content-strategy *::before,
+#ifo-content-strategy *::after {
+  box-sizing: border-box;
+}
+
+#ifo-content-strategy .cs-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px clamp(20px, 4vw, 56px) 0;
+}
+
+#ifo-content-strategy .cs-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+#ifo-content-strategy .cs-logo img {
+  display: block;
+  width: 62px;
+  height: auto;
+}
+
+#ifo-content-strategy .cs-intro {
+  padding: 48px 24px 42px;
+}
+
+#ifo-content-strategy .cs-heading {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 11px 21px;
+  border: 1px solid var(--cs-border);
+  border-radius: 24px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 5px 14px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 1.16em;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+#ifo-content-strategy .cs-page-title {
+  padding: 12px 24px;
+  font-size: clamp(1.85em, 4vw, 2.6em);
+  letter-spacing: -0.035em;
+}
+
+#ifo-content-strategy .cs-subtitle {
+  max-width: 37ch;
+  margin: 24px auto 0;
+  color: var(--cs-muted);
+}
+
+#ifo-content-strategy .cs-intro-copy {
+  max-width: 45ch;
+  margin: 22px auto 0;
+  color: var(--cs-muted);
+  font-size: 0.94em;
+}
+
+#ifo-content-strategy .cs-band {
+  background: var(--cs-band);
+}
+
+#ifo-content-strategy .cs-workflow {
+  padding: 28px 22px 36px;
+}
+
+#ifo-content-strategy .cs-workflow .cs-heading {
+  font-size: 1.04em;
+}
+
+#ifo-content-strategy .cs-workflow-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 22px;
+  width: 100%;
+  max-width: 980px;
+  margin: 24px auto 0;
+  padding: 23px 18px;
+  list-style: none;
+  border: 1px solid var(--cs-border);
+  border-radius: 24px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 8px 24px rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+#ifo-content-strategy .cs-workflow-step {
+  flex: 0 1 calc((100% - 22px) / 2);
+  min-width: 0;
+}
+
+#ifo-content-strategy .cs-workflow-step h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+  font-size: 0.88em;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+#ifo-content-strategy .cs-step-number {
+  color: var(--cs-muted);
+  font-weight: 400;
+}
+
+#ifo-content-strategy .cs-workflow-step p {
+  max-width: 24ch;
+  margin: 7px auto 0;
+  color: var(--cs-muted);
+  font-size: 0.81em;
+}
+
+#ifo-content-strategy .cs-workflow-note {
+  max-width: 55ch;
+  margin: 18px auto 0;
+  color: var(--cs-muted);
+  font-size: 0.81em;
+}
+
+#ifo-content-strategy .cs-evidence {
+  padding: 48px 24px 50px;
+}
+
+#ifo-content-strategy figure {
+  width: 100%;
+  max-width: 520px;
+  margin: 26px auto 0;
+}
+
+#ifo-content-strategy .cs-image-frame {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--cs-border);
+  border-radius: 25px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 12px 34px rgba(0, 0, 0, 0.065);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transform-origin: 50% 70%;
+}
+
+#ifo-content-strategy .cs-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+#ifo-content-strategy .cs-square {
+  max-width: 310px;
+}
+
+#ifo-content-strategy .cs-portrait {
+  max-width: 350px;
+}
+
+#ifo-content-strategy .cs-analytics {
+  max-width: 450px;
+}
+
+#ifo-content-strategy .cs-message {
+  max-width: 365px;
+}
+
+#ifo-content-strategy figcaption {
+  max-width: 43ch;
+  margin: 22px auto 0;
+  color: var(--cs-muted);
+  font-size: 0.94em;
+}
+
+#ifo-content-strategy .cs-post-action {
+  margin-top: 18px;
+}
+
+#ifo-content-strategy .cs-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 11px 20px;
+  border: 1px solid var(--cs-border);
+  border-radius: 24px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 4px 12px rgba(0, 0, 0, 0.045);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--cs-ink);
+  font-size: 0.94em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+#ifo-content-strategy .cs-link:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(24, 24, 24, 0.22);
+  transform: translateY(-2px);
+}
+
+#ifo-content-strategy .cs-link:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+#ifo-content-strategy a:focus-visible {
+  outline: 3px solid #737d83;
+  outline-offset: 4px;
+}
+
+#ifo-content-strategy .cs-reply-example {
+  margin-top: 42px;
+}
+
+#ifo-content-strategy .cs-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 28px;
+  max-width: 520px;
+  margin: 24px auto 0;
+}
+
+#ifo-content-strategy .cs-metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#ifo-content-strategy .cs-metrics dt {
+  color: var(--cs-muted);
+  font-size: 0.84em;
+}
+
+#ifo-content-strategy .cs-metrics dd {
+  margin: 0;
+  font-size: 1.28em;
+  font-weight: 500;
+}
+
+#ifo-content-strategy .cs-footer {
+  position: fixed;
+  left: max(24px, env(safe-area-inset-left));
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(28px, env(safe-area-inset-bottom));
+  z-index: 30;
+  padding: 0;
+  pointer-events: none;
+}
+
+#ifo-content-strategy .cs-applied-skills {
+  padding: 40px 24px 48px;
+}
+
+#ifo-content-strategy .cs-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 22px;
+  width: fit-content;
+  max-width: min(100%, 660px);
+  margin: 22px auto 0;
+  padding: 20px 24px;
+  list-style: none;
+  border: 1px solid var(--cs-border);
+  border-radius: 24px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 8px 24px rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--cs-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#ifo-content-strategy .cs-skills-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#ifo-content-strategy .cs-footer nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+#ifo-content-strategy .cs-footer a {
+  pointer-events: auto;
+}
+
+/* Keep the final caption and keyboard targets clear of the persistent controls. */
+#ifo-content-strategy main {
+  padding-bottom: calc(112px + env(safe-area-inset-bottom));
+}
+
+/* Everything is readable without JavaScript. Motion is opt-in. */
+#ifo-content-strategy.cs-motion-ready [data-motion] {
+  opacity: 0;
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="frame"] {
+  transform: translateY(64px) scale(0.84);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="heading"] {
+  transform: translateY(-22px) scale(0.91);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="lift"] {
+  transform: translateY(26px);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="button"] {
+  transform: translateY(20px) scale(0.89);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="step"] {
+  transform: translateY(-28px) scale(0.94);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion].cs-in-view {
+  animation-duration: 700ms;
+  animation-timing-function: var(--cs-ease);
+  animation-fill-mode: both;
+  animation-delay: var(--cs-delay, 0ms);
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="frame"].cs-in-view {
+  animation-name: cs-frame-pop;
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="heading"].cs-in-view {
+  animation-name: cs-heading-drop;
+  animation-duration: 540ms;
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="lift"].cs-in-view {
+  animation-name: cs-caption-rise;
+  animation-duration: 480ms;
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="button"].cs-in-view {
+  animation-name: cs-button-pop;
+  animation-duration: 540ms;
+}
+
+#ifo-content-strategy.cs-motion-ready [data-motion="step"].cs-in-view {
+  animation-name: cs-workflow-drop;
+  animation-duration: 560ms;
+}
+
+/* Keyboard users must never land on a visually hidden action. */
+#ifo-content-strategy.cs-motion-ready [data-motion]:focus-within {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@keyframes cs-frame-pop {
+  0% { opacity: 0; transform: translateY(64px) scale(0.84); }
+  65% { opacity: 1; transform: translateY(-7px) scale(1.025); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cs-heading-drop {
+  0% { opacity: 0; transform: translateY(-22px) scale(0.91); }
+  70% { opacity: 1; transform: translateY(3px) scale(1.015); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cs-caption-rise {
+  0% { opacity: 0; transform: translateY(26px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cs-button-pop {
+  0% { opacity: 0; transform: translateY(20px) scale(0.89); }
+  72% { opacity: 1; transform: translateY(-2px) scale(1.035); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cs-workflow-drop {
+  0% { opacity: 0; transform: translateY(-28px) scale(0.94); }
+  72% { opacity: 1; transform: translateY(3px) scale(1.015); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (min-width: 560px) {
+  #ifo-content-strategy .cs-intro {
+    padding-top: 58px;
+    padding-bottom: 48px;
+  }
+
+  #ifo-content-strategy .cs-workflow-list {
+    gap: 26px 28px;
+    padding: 25px 22px;
+  }
+
+  #ifo-content-strategy .cs-workflow-step {
+    flex-basis: calc((100% - 56px) / 3);
+  }
+
+  #ifo-content-strategy .cs-evidence {
+    padding-top: 54px;
+    padding-bottom: 58px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #ifo-content-strategy .cs-workflow-step {
+    flex-basis: calc((100% - 84px) / 4);
+  }
+}
+
+@media (max-width: 350px) {
+  #ifo-content-strategy .cs-intro {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  #ifo-content-strategy .cs-workflow {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #ifo-content-strategy .cs-workflow-list {
+    gap: 23px 14px;
+    padding: 22px 12px;
+  }
+
+  #ifo-content-strategy .cs-workflow-step {
+    flex-basis: calc((100% - 14px) / 2);
+  }
+
+  #ifo-content-strategy .cs-workflow-step h3 {
+    gap: 5px;
+    font-size: 0.84em;
+  }
+
+  #ifo-content-strategy .cs-evidence {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #ifo-content-strategy [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  #ifo-content-strategy .cs-link {
+    transition: none;
+  }
+
+  #ifo-content-strategy .cs-link:hover,
+  #ifo-content-strategy .cs-link:active {
+    transform: none;
+  }
+}
+
+
+/* Motion and video page */
+#ifo-content-strategy .mv-section {
+  padding: 4px 16px 40px;
+}
+
+#ifo-content-strategy .mv-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 22px;
+}
+
+#ifo-content-strategy .mv-tab {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--cs-border);
+  border-radius: 999px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 4px 12px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--cs-muted);
+  font: inherit;
+  font-size: 0.84em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+#ifo-content-strategy .mv-tab[aria-selected="true"] {
+  border-color: var(--cs-ink);
+  background: var(--cs-ink);
+  color: #fff;
+}
+
+#ifo-content-strategy .mv-tab:focus-visible {
+  outline: 3px solid #737d83;
+  outline-offset: 3px;
+}
+
+#ifo-content-strategy .mv-group + .mv-group {
+  margin-top: 30px;
+}
+
+#ifo-content-strategy .mv-group-title {
+  margin: 0 0 14px;
+  color: var(--cs-muted);
+  font-size: 0.84em;
+  font-weight: 500;
+}
+
+#ifo-content-strategy.mv-tabs-ready .mv-group-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+#ifo-content-strategy.mv-tabs-ready .mv-group + .mv-group {
+  margin-top: 0;
+}
+
+#ifo-content-strategy .mv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 12px;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+#ifo-content-strategy .mv-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+#ifo-content-strategy .mv-card a {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+#ifo-content-strategy .mv-frame {
+  display: block;
+  padding: 5px;
+  border: 1px solid var(--cs-border);
+  border-radius: 15px;
+  background: var(--cs-glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 8px 22px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 180ms ease;
+}
+
+#ifo-content-strategy .mv-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#ifo-content-strategy .mv-name {
+  display: block;
+  margin-top: 9px;
+  font-size: 0.82em;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+#ifo-content-strategy .mv-view {
+  display: block;
+  margin-top: 2px;
+  color: var(--cs-muted);
+  font-size: 0.74em;
+  line-height: 1.3;
+}
+
+#ifo-content-strategy .mv-card a:hover .mv-frame {
+  transform: translateY(-2px);
+}
+
+#ifo-content-strategy .mv-card a:hover .mv-view {
+  color: var(--cs-ink);
+}
+
+@media (min-width: 760px) {
+  #ifo-content-strategy .mv-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  #ifo-content-strategy .mv-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px 20px;
+  }
+
+  #ifo-content-strategy .mv-name {
+    font-size: 0.88em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #ifo-content-strategy .mv-frame,
+  #ifo-content-strategy .mv-tab {
+    transition: none;
+  }
+
+  #ifo-content-strategy .mv-card a:hover .mv-frame {
+    transform: none;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div id="ifo-content-strategy">
+    <header class="cs-navigation">
+      <a class="cs-logo" href="index.html#home" aria-label="Home">
+        <img src="assets/ifo-logo.svg" alt="IFO" width="1600" height="900">
+      </a>
+    </header>
+
+    <main>
+      <section class="cs-intro" aria-labelledby="cs-title">
+        <h1 class="cs-heading cs-page-title" id="cs-title" data-motion="heading">Motion and video</h1>
+        <p class="cs-subtitle" data-motion="lift" style="--cs-delay:100ms">Short videos I scripted, designed and edited for X.</p>
+      </section>
+
+      <section class="mv-section" aria-label="Videos">
+        <div class="mv-tabs" role="tablist" aria-label="Video categories" hidden>
+          <button class="mv-tab" type="button" role="tab" id="mv-tab-story" aria-controls="mv-story" aria-selected="true">Storytelling</button>
+          <button class="mv-tab" type="button" role="tab" id="mv-tab-motion" aria-controls="mv-motion" aria-selected="false">Motion design</button>
+          <button class="mv-tab" type="button" role="tab" id="mv-tab-ui" aria-controls="mv-ui" aria-selected="false">UI animation</button>
+        </div>
+
+        <div class="mv-group" id="mv-story" role="tabpanel" aria-labelledby="mv-tab-story">
+          <h2 class="mv-group-title">Storytelling</h2>
+          <ul class="mv-grid" role="list">
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2109276614391459966" target="_blank" rel="noopener noreferrer" aria-label="Context Rot. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-context-rot.webp" alt="Context Rot video thumbnail" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Context Rot</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2109569382145773932" target="_blank" rel="noopener noreferrer" aria-label="Always on agents. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-always-on-agents.webp" alt="OpenAI Dots and Meta Muse cards" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Always on agents</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2111093715179635092" target="_blank" rel="noopener noreferrer" aria-label="ChatGPT is making every answer up. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-making-answers-up.webp" alt="Phone and Scrabble tiles" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Making every answer up</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2110425759471038895" target="_blank" rel="noopener noreferrer" aria-label="Jevons paradox. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-jevons-paradox.webp" alt="Jevons paradox title repeated across the frame" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Jevons paradox</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2109511580819882058" target="_blank" rel="noopener noreferrer" aria-label="Funnel maths. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-funnel-maths.webp" alt="Andrej Karpathy title card" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Funnel maths</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2109442113720987890" target="_blank" rel="noopener noreferrer" aria-label="agentusecases.ai for Alex Finn. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-alex-finn.webp" alt="Alex Finn profile card" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Alex Finn video</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2095917699670970456" target="_blank" rel="noopener noreferrer" aria-label="Founders. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-founders.webp" alt="Founders title on paper" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Founders</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mv-group" id="mv-motion" role="tabpanel" aria-labelledby="mv-tab-motion">
+          <h2 class="mv-group-title">Motion design</h2>
+          <ul class="mv-grid" role="list">
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2107371585606656234" target="_blank" rel="noopener noreferrer" aria-label="Gravity on loop. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-gravity-on-loop.webp" alt="Crayon drawing of a man reading under an apple tree" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Gravity on loop</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2104458300897075260" target="_blank" rel="noopener noreferrer" aria-label="Starship Flight 14. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-starship-flight-14.webp" alt="Flight 14 title card, Starbase, Texas" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Starship Flight 14</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mv-group" id="mv-ui" role="tabpanel" aria-labelledby="mv-tab-ui">
+          <h2 class="mv-group-title">UI animation</h2>
+          <ul class="mv-grid" role="list">
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2103514066509578514" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp message journey. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-whatsapp-message.webp" alt="WhatsApp chat on a tilted phone with its route across the top" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">WhatsApp message journey</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2103113897947361304" target="_blank" rel="noopener noreferrer" aria-label="Meta Connect glasses. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-meta-glasses.webp" alt="Illustrated glasses under a Meta Connect 2026 label" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Meta Connect glasses</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+            <li class="mv-card">
+              <a href="https://x.com/israelfemiojo/status/2102642002613481939" target="_blank" rel="noopener noreferrer" aria-label="Opus 5.5 vs GPT-6 Sol. Tap to view the post on X (opens in a new tab)">
+                <span class="mv-frame"><img src="assets/video-opus-vs-sol.webp" alt="The same flame mascot animation side by side" width="800" height="450" loading="lazy" decoding="async"></span>
+                <span class="mv-name">Opus 5.5 vs GPT-6 Sol</span>
+                <span class="mv-view">Tap to view post</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="cs-footer">
+      <nav aria-label="Return navigation">
+        <a class="cs-link" href="index.html#home">Home</a>
+        <a class="cs-link" href="index.html#work">Selected work</a>
+      </nav>
+    </footer>
+  </div>
+<script>
+(() => {
+  "use strict";
+  const root = document.getElementById("ifo-content-strategy");
+  const list = root && root.querySelector(".mv-tabs");
+  if (!list) return;
+  const tabs = [...list.querySelectorAll(".mv-tab")];
+  const panels = tabs.map(tab => document.getElementById(tab.getAttribute("aria-controls")));
+
+  function select(index, focus) {
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.setAttribute("aria-selected", String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+    });
+    if (focus) tabs[index].focus();
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i, false));
+    tab.addEventListener("keydown", event => {
+      const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+      if (!step) return;
+      event.preventDefault();
+      select((i + step + tabs.length) % tabs.length, true);
+    });
+  });
+
+  list.hidden = false;
+  root.classList.add("mv-tabs-ready");
+  select(0, false);
+})();
+</script>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.getElementById("ifo-content-strategy");
+  if (!root || !window.matchMedia) return;
+
+  const pieces = [...root.querySelectorAll("[data-motion]")];
+  const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let observer;
+
+  function resetMotion() {
+    if (observer) observer.disconnect();
+    observer = null;
+    root.classList.remove("cs-motion-ready");
+    pieces.forEach(piece => piece.classList.remove("cs-in-view"));
+  }
+
+  function configureMotion() {
+    resetMotion();
+    if (preference.matches || !("IntersectionObserver" in window)) return;
+
+    try {
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          // Removing the class on exit lets every section replay on return.
+          entry.target.classList.toggle("cs-in-view", entry.isIntersecting);
+        });
+      }, { root: null, threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+
+      root.classList.add("cs-motion-ready");
+      pieces.forEach(piece => observer.observe(piece));
+    } catch {
+      // An unavailable or failed observer must not hide the page.
+      resetMotion();
+    }
+  }
+
+  configureMotion();
+
+  if (preference.addEventListener) {
+    preference.addEventListener("change", configureMotion);
+  } else if (preference.addListener) {
+    preference.addListener(configureMotion);
+  }
+
+  // Browser Back can restore this document without running its scripts again.
+  window.addEventListener("pageshow", event => {
+    if (event.persisted) configureMotion();
+  });
+})();
+
+</script>
+</body>
+</html>
