@@ -2,7 +2,7 @@
 .ifo-floaters{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .ifo-floaters + *,body > .hub,#ifo-content-strategy,#ifo-launch-brief,#ifo-unabyss-review,#ifo-quso-review{position:relative;z-index:1}
 #ifo-content-strategy,#ifo-launch-brief,#ifo-unabyss-review,#ifo-quso-review{background:transparent!important}
-.ifo-fl{position:absolute;width:var(--w);height:auto;opacity:.38;filter:blur(1.4px) drop-shadow(8px 14px 18px rgba(18,19,24,.16));
+.ifo-fl{position:absolute;width:calc(var(--w)*1.1);height:auto;opacity:.7;filter:blur(.4px) drop-shadow(10px 16px 20px rgba(18,19,24,.22));
   transform:rotate(var(--r));will-change:transform}
 @media (prefers-reduced-motion:no-preference){.ifo-fl{animation:ifo-zero-g var(--dur) ease-in-out var(--delay) infinite}}
 @keyframes ifo-zero-g{
@@ -12,6 +12,6 @@
   100%{transform:translate(0,0) rotate(var(--r))}
 }
 @media (max-width:759px){
-  .ifo-fl{opacity:.3;filter:blur(1.2px);width:calc(var(--w)*.48)}
+  .ifo-fl{opacity:.38;filter:blur(.8px) drop-shadow(6px 10px 12px rgba(18,19,24,.18));width:calc(var(--w)*.56)}
   .ifo-fl.m-hide{display:none}
 }

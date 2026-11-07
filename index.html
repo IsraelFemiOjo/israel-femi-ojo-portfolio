@@ -533,7 +533,7 @@
   .floaters{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
   #work .work-shell,#skills .skills-scroll,#skills .skills-actions,#work .back{z-index:2}
   #work .work-shell,#skills .skills-scroll{position:absolute}
-  .fl{position:absolute;width:var(--w);height:auto;opacity:.42;filter:blur(1.4px) drop-shadow(8px 14px 18px rgba(18,19,24,.18));
+  .fl{position:absolute;width:var(--w);height:auto;opacity:.72;filter:blur(.4px) drop-shadow(10px 16px 20px rgba(18,19,24,.24));
     transform:rotate(var(--r));will-change:transform}
   @media (prefers-reduced-motion:no-preference){
     .fl{animation:zero-g var(--dur) ease-in-out var(--delay) infinite}
@@ -547,7 +547,7 @@
   }
   /* phones: fewer, smaller, fainter, and tucked half off the edges so text stays clean */
   @media (max-width:759px){
-    .fl{opacity:.3;filter:blur(1.2px);width:calc(var(--w)*.48)}
+    .fl{opacity:.6;filter:blur(.5px) drop-shadow(6px 10px 12px rgba(18,19,24,.2));width:calc(var(--w)*.56)}
     .fl.m-hide{display:none}
     #work .fl[style*="left:"],#skills .fl[style*="left:"]{left:4%!important}
     #work .fl[style*="right:"],#skills .fl[style*="right:"]{right:5%!important}
