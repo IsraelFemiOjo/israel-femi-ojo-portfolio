@@ -776,16 +776,28 @@
       const c1=[mx+nx*d,my+ny*d],c2=[mx-nx*d,my-ny*d];return (c1[0]+c1[1]<c2[0]+c2[1])?c1:c2;};
     // grow the ink corner until the whole contact block sits outside the paper circle
     for(let i=0;i<120;i++){ c=centre([W,Ay],[Bx,H]); if(Math.hypot(P[0]-c[0],P[1]-c[1])>R) break; Ay-=8; Bx-=8; }
+    // no near-miss tangents: the blue dot either clears the arc by a real gap or overlaps it decisively
+    const dw=views.home.querySelector('.disc-wrap');
+    if(dw){
+      const prev=dw.style.animation; dw.style.animation='none';
+      const dr=dw.getBoundingClientRect(); dw.style.animation=prev;
+      const r=dr.width/2, dc=[dr.left-hr.left+r, dr.top-hr.top+r];
+      const into=()=>Math.hypot(dc[0]-c[0],dc[1]-c[1])+r-R;   // how far the dot reaches into the ink (negative = gap)
+      const gap=wide?48:32, bite=0.32*r;
+      for(let i=0;i<120 && into()>-gap && into()<bite;i++){ Ay-=8; Bx-=8; c=centre([W,Ay],[Bx,H]); }
+    }
     arc.style.setProperty('--arc-d',(2*R)+'px');arc.style.setProperty('--arc-x',(c[0]-R)+'px');arc.style.setProperty('--arc-y',(c[1]-R)+'px');
     // on phones the hero must finish above where the arc meets the right edge
     if(!wide) hero.style.bottom=Math.max(H-Ay+12,40)+'px'; else hero.style.bottom='';
     // keep the "Selected" row and the credit on paper: wrap them before the arc
     const crossX=y=>{const d=R*R-(y-c[1])*(y-c[1]);return d>0?c[0]+Math.sqrt(d):W;};
     views.home.querySelectorAll('.strip,.home-credit').forEach(el=>{
-      el.style.maxWidth='';
+      el.style.maxWidth='';el.style.visibility='';
       if(!el.offsetParent) return;
       const r=el.getBoundingClientRect(), left=r.left-hr.left;
       const room=Math.min(crossX(r.top-hr.top),crossX(r.bottom-hr.top))-left-28;
+      el.style.visibility='';
+      if(el.classList.contains('home-credit') && room<300){ el.style.visibility='hidden'; return; }
       if(left+r.width>left+room) el.style.maxWidth=Math.max(room,160)+'px';
     });
   }
