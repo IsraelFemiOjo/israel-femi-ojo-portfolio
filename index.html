@@ -472,6 +472,43 @@
   .copy2 h1 .dot::after{bottom:.1em;left:.07em;width:.16em;height:.16em}
   .contact-h{letter-spacing:-.025em}
   @media (max-width:599px){.copy2 h1{font-size:clamp(36px,10.4vw,48px)}}
+
+  /* ===== v5: one smooth entrance, one paper ground, calm panels ===== */
+  :root{--smooth:cubic-bezier(.16,1,.3,1)}
+  @media (prefers-reduced-motion:no-preference){
+    .home-intro #home[data-pos="home"] .disc-wrap{animation:hero-rise 1100ms var(--smooth) 120ms both}
+    .home-intro #home[data-pos="home"] .disc{animation:none}
+    .home-intro #home[data-pos="home"] .clip img{animation:portrait-settle 1100ms var(--smooth) 120ms both}
+    .home-intro #home[data-pos="home"] .kicker{animation:soft-in 700ms var(--smooth) 220ms both}
+    .home-intro #home[data-pos="home"] h1 .w{animation:soft-in 800ms var(--smooth) both}
+    .home-intro #home[data-pos="home"] h1 .w:nth-child(1){animation-delay:300ms}
+    .home-intro #home[data-pos="home"] h1 .w:nth-child(2){animation-delay:390ms}
+    .home-intro #home[data-pos="home"] .tail{animation:soft-in 800ms var(--smooth) 520ms both}
+    .home-intro #home[data-pos="home"] .actions2{animation:soft-in 800ms var(--smooth) 620ms both}
+    .home-intro #home[data-pos="home"] .strip{animation:soft-in 800ms var(--smooth) 720ms both}
+    .home-intro #home[data-pos="home"] .arc{animation:arc-glide 1300ms var(--smooth) 380ms both}
+    .home-intro #home[data-pos="home"] .contact{animation:soft-in 800ms var(--smooth) 900ms both}
+    .home-intro #home[data-pos="home"] .home-credit{animation:soft-in 800ms var(--smooth) 760ms both}
+  }
+  /* the dot and the portrait arrive together as one piece */
+  @keyframes hero-rise{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+  /* inside the dot, the portrait eases up a touch further, so the head clears the edge in the same motion */
+  @keyframes portrait-settle{from{transform:translate(-50%,7%)}to{transform:translate(-50%,0)}}
+  @keyframes soft-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes arc-glide{from{opacity:0;transform:translate(6vw,8vh)}to{opacity:1;transform:none}}
+
+  /* one ground colour everywhere */
+  #work{background:var(--paper)}
+  #skills::before{display:none}
+  #home .band{display:none}
+
+  /* skills and experience panels: flat paper cards, not pills */
+  .skills-panel.glass,.tools-panel.glass,.experience-panel.glass{border-radius:6px;border:1px solid var(--line);background:var(--paper);box-shadow:none}
+  .skills-panel.glass:hover,.tools-panel.glass:hover,.experience-panel.glass:hover,
+  .skills-panel.glass:active,.tools-panel.glass:active,.experience-panel.glass:active{border-radius:6px;transform:none;background:var(--paper);box-shadow:none}
+  .fonts-wait #home{visibility:hidden}
+  .skills-action.glass,.back.glass{background:var(--paper)}
+  @media (hover:hover){.skills-action.glass:hover,.back.glass:hover{background:var(--paper)}}
 </style></head><body class="home-intro">
 <main class="stage" id="stage">
 
@@ -655,7 +692,7 @@
     document.body.classList.remove('home-intro');
     void views.home.offsetWidth;
     document.body.classList.add('home-intro');
-    homeIntroTimer=window.setTimeout(()=>document.body.classList.remove('home-intro'),2400);
+    homeIntroTimer=window.setTimeout(()=>document.body.classList.remove('home-intro'),2000);
   }
   function animateWork(){
     if(reduceMotion) return;
@@ -753,7 +790,13 @@
     });
   }
   placeArc(); window.addEventListener('resize',placeArc);
-  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(placeArc);
+  // start the entrance once fonts are in, so nothing is measured twice mid-animation
+  if(document.fonts&&document.fonts.status!=='loaded'&&(location.hash.slice(1)||'home')==='home'){
+    document.documentElement.classList.add('fonts-wait');
+    let started=false;
+    const go=()=>{if(started)return;started=true;placeArc();document.documentElement.classList.remove('fonts-wait');animateHome();};
+    document.fonts.ready.then(go); setTimeout(go,800);
+  }else if(document.fonts&&document.fonts.ready){document.fonts.ready.then(placeArc);}
   show(location.hash.slice(1)||'home', false);
 })();
 </script>
