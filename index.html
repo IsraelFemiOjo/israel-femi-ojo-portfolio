@@ -742,8 +742,18 @@
     arc.style.setProperty('--arc-d',(2*R)+'px');arc.style.setProperty('--arc-x',(c[0]-R)+'px');arc.style.setProperty('--arc-y',(c[1]-R)+'px');
     // on phones the hero must finish above where the arc meets the right edge
     if(!wide) hero.style.bottom=Math.max(H-Ay+12,40)+'px'; else hero.style.bottom='';
+    // keep the "Selected" row and the credit on paper: wrap them before the arc
+    const crossX=y=>{const d=R*R-(y-c[1])*(y-c[1]);return d>0?c[0]+Math.sqrt(d):W;};
+    views.home.querySelectorAll('.strip,.home-credit').forEach(el=>{
+      el.style.maxWidth='';
+      if(!el.offsetParent) return;
+      const r=el.getBoundingClientRect(), left=r.left-hr.left;
+      const room=Math.min(crossX(r.top-hr.top),crossX(r.bottom-hr.top))-left-28;
+      if(left+r.width>left+room) el.style.maxWidth=Math.max(room,160)+'px';
+    });
   }
   placeArc(); window.addEventListener('resize',placeArc);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(placeArc);
   show(location.hash.slice(1)||'home', false);
 })();
 </script>

@@ -568,6 +568,11 @@ body {
   #ifo-content-strategy .cs-video-title{font-weight:700;font-size:16px;letter-spacing:-.02em;line-height:1.2}
   #ifo-content-strategy .cs-analytics{max-width:520px;margin:36px auto 0}
   #ifo-content-strategy .cs-panel .cs-post-action{margin-top:26px;display:flex;justify-content:center}
+  #ifo-content-strategy .cs-top-post{display:flex;flex-direction:column;gap:8px;max-width:640px;margin:0 auto;text-align:left;color:#121318;text-decoration:none}
+  #ifo-content-strategy .cs-top-post .cs-image-frame{display:block;padding:6px;transition:transform 220ms ease}
+  #ifo-content-strategy .cs-top-post img{display:block;width:100%;height:auto}
+  @media (hover:hover){#ifo-content-strategy .cs-top-post:hover .cs-image-frame{transform:translateY(-4px)}}
+  #ifo-content-strategy .cs-top-note{font-size:13px;color:#585A64}
   #ifo-content-strategy .cs-yt-note{max-width:520px;margin:24px auto 0;text-align:center;font-size:15px;line-height:1.5;color:#585A64}
 </style>
 <script>
@@ -633,7 +638,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <dl class="cs-proof-list">
           <div><dd>500.9K</dd><dt>views on one TikTok</dt></div>
           <div><dd>547.7K</dd><dt>TikTok views in 28 days</dt></div>
-          <div><dd>624K</dd><dt>X impressions in my first month</dt></div>
+          <div><dd>199K</dd><dt>views on my top X post</dt></div>
           <div><dd>OpenAI</dd><dt>asked to share a thread I wrote</dt></div>
         </dl>
       </section>
@@ -667,6 +672,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         </div>
 
         <div class="cs-panel" role="tabpanel" id="panel-x" aria-labelledby="tab-x" hidden>
+          <section class="cs-evidence" aria-labelledby="cs-top-x-title">
+            <h2 class="cs-heading" id="cs-top-x-title">Top post</h2>
+            <a class="cs-top-post" href="https://x.com/israelfemiojo" target="_blank" rel="noopener noreferrer" aria-label="Claude Opus 5.5 vs ChatGPT-6 Sol. Pinned on my X profile (opens in a new tab)">
+              <span class="cs-image-frame"><img src="assets/x-opus-vs-sol.webp" alt="Side-by-side launch animations made by Claude Opus 5.5 and GPT-6 Sol from the same prompt" width="960" height="536" loading="lazy"></span>
+              <span class="cs-video-meta">X · 199K views · 1K likes · 27 reposts · 27 replies</span>
+              <span class="cs-video-title">Claude Opus 5.5 vs ChatGPT-6 Sol: the same prompt for a Sol &amp; Luna launch video, side by side.</span>
+              <span class="cs-top-note">Pinned on my X profile.</span>
+            </a>
+          </section>
       <section class="cs-evidence" aria-labelledby="cs-posts-title">
         <h2 class="cs-heading" id="cs-posts-title" data-motion="heading">Original posts</h2>
         <figure class="cs-square">
