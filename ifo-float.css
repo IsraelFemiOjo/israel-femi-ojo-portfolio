@@ -1,0 +1,17 @@
+/* IFO: floating objects for the work pages. Fixed behind the content; the page scrolls over them. */
+.ifo-floaters{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ifo-floaters + *,body > .hub,#ifo-content-strategy,#ifo-launch-brief,#ifo-unabyss-review,#ifo-quso-review{position:relative;z-index:1}
+#ifo-content-strategy,#ifo-launch-brief,#ifo-unabyss-review,#ifo-quso-review{background:transparent!important}
+.ifo-fl{position:absolute;width:var(--w);height:auto;opacity:.38;filter:blur(1.4px) drop-shadow(8px 14px 18px rgba(18,19,24,.16));
+  transform:rotate(var(--r));will-change:transform}
+@media (prefers-reduced-motion:no-preference){.ifo-fl{animation:ifo-zero-g var(--dur) ease-in-out var(--delay) infinite}}
+@keyframes ifo-zero-g{
+  0%{transform:translate(0,0) rotate(var(--r))}
+  33%{transform:translate(calc(var(--dx)*.6),var(--dy)) rotate(calc(var(--r) + var(--dr)))}
+  66%{transform:translate(var(--dx),calc(var(--dy)*.3)) rotate(calc(var(--r) - var(--dr)*.5))}
+  100%{transform:translate(0,0) rotate(var(--r))}
+}
+@media (max-width:759px){
+  .ifo-fl{opacity:.3;filter:blur(1.2px);width:calc(var(--w)*.48)}
+  .ifo-fl.m-hide{display:none}
+}
