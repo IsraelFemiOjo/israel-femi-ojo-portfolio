@@ -552,6 +552,13 @@
     #work .fl[style*="left:"],#skills .fl[style*="left:"]{left:4%!important}
     #work .fl[style*="right:"],#skills .fl[style*="right:"]{right:5%!important}
   }
+
+  .skill-groups{margin:0}
+  .skill-groups>div+div{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .skill-groups dt{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ballpoint);margin-bottom:6px}
+  .skill-groups dd{margin:0;font-size:13px;line-height:1.62}
+  @media (min-width:600px){.skill-groups dd{font-size:14px}.skill-groups>div{display:grid;grid-template-columns:150px 1fr;gap:18px}.skill-groups dt{margin:3px 0 0}}
+  .experience-copy a{text-decoration:underline;text-decoration-color:var(--ballpoint);text-underline-offset:3px}
 </style></head><body class="home-intro">
 <main class="stage" id="stage">
 
@@ -626,36 +633,30 @@
         <section class="skills-block skill-reveal" data-skill-reveal aria-labelledby="skills-heading">
           <h2 id="skills-heading">Skills</h2>
           <div class="glass skills-panel">
-            <ul class="skills-list">
-              <li>Content strategy</li>
-              <li>Product research</li>
-              <li>X ghostwriting</li>
-              <li>Product messaging</li>
-              <li>Brand voice systems</li>
-              <li>Launch content</li>
-              <li>Sponsored campaigns</li>
-              <li>Campaign coordination</li>
-              <li>Video editing</li>
-              <li>Storytelling</li>
-              <li>Creative direction</li>
-              <li>Audience &amp; competitor research</li>
-              <li>Homepage &amp; ICP analysis</li>
-              <li>Fact-checking</li>
-              <li>AI evaluation</li>
-              <li>Publishing systems</li>
-            </ul>
+            <dl class="skill-groups">
+              <div><dt>Content</dt><dd>Content strategy · Product research · Product messaging · Brand voice systems · Launch content · Sponsored campaigns · Campaign coordination · X ghostwriting · Storytelling · Fact-checking · Audience &amp; competitor research · Homepage &amp; ICP analysis · AI evaluation · Publishing systems</dd></div>
+              <div><dt>Video &amp; motion</dt><dd>Short-form video (TikTok, YouTube Shorts) · Video editing · Motion design · Creative direction</dd></div>
+              <div><dt>Development</dt><dd>Languages: HTML, CSS, JavaScript · Front end: React, Vite, React Router · Back end: Node.js, Express, REST APIs, JWT authentication · Database: MongoDB (Mongoose) · Version control: Git, GitHub</dd></div>
+            </dl>
           </div>
         </section>
 
         <section class="glass tools-panel skill-reveal" data-skill-reveal aria-labelledby="tools-heading">
           <h2 id="tools-heading">Tools</h2>
-          <p>Notion, Google Workspace, Microsoft Office, Typefully, Canva, CapCut, ChatGPT, Claude and Grok.</p>
+          <p>Notion, Google Workspace, Microsoft Office, Typefully, Canva, CapCut, Higgsfield, YouTube Studio, ChatGPT, Claude and Grok.</p>
         </section>
 
         <section class="experience-block skill-reveal" data-skill-reveal aria-labelledby="experience-heading">
           <h2 id="experience-heading">Experience</h2>
           <div class="glass experience-panel">
             <article class="experience-entry">
+                <div>
+                  <div class="experience-heading"><h3>Independent Creator</h3><time>2026–present</time></div>
+                  <p class="experience-org">TikTok @israelfemiojo1 · YouTube @aiwithizzy</p>
+                </div>
+                <p class="experience-copy">Short explainer videos that make AI, tech and the internet make sense. 547.7K TikTok views in the first 28 days, with one video passing 500K views and 77K likes.</p>
+              </article>
+              <article class="experience-entry">
               <div>
                 <div class="experience-heading">
                   <h3>Content Strategist &amp; X Ghostwriter</h3>
@@ -686,6 +687,19 @@
                 <p class="experience-org">Portfolio project</p>
               </div>
               <p class="experience-copy">Founder-facing product reviews, homepage analysis and controlled AI evaluations focused on clarity, evidence and claim consistency.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="experience-block skill-reveal" data-skill-reveal aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <div class="glass experience-panel">
+            <article class="experience-entry">
+              <div>
+                <div class="experience-heading"><h3>Software Development Certificate</h3><time>Oct 2026</time></div>
+                <p class="experience-org">TS Academy · 6-month programme</p>
+              </div>
+              <p class="experience-copy">Full-stack JavaScript: HTML, CSS, React, Node.js, Express and MongoDB. Final team project: <a href="products.html">Hajime Academy</a>, a school management portal.</p>
             </article>
           </div>
         </section>
