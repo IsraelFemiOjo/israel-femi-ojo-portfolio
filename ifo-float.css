@@ -12,10 +12,10 @@
   100%{transform:translate(0,0) rotate(var(--r))}
 }
 @media (max-width:759px){
-  .ifo-fl{opacity:.6;filter:blur(.5px) drop-shadow(6px 10px 12px rgba(18,19,24,.18));width:calc(var(--w)*.56)}
+  .ifo-fl{opacity:.24;filter:blur(1px) drop-shadow(6px 10px 12px rgba(18,19,24,.18));width:calc(var(--w)*.56)}
   .ifo-fl.m-hide{display:none}
 }
 
 /* phones: full strength in the gaps, fades only while text is passing over it */
 .ifo-fl{transition:opacity .45s ease}
-@media (max-width:759px){.ifo-fl.dim{opacity:.14}}
+@media (max-width:759px){.ifo-fl.dim{opacity:.06}}
