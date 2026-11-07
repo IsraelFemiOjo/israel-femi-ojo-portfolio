@@ -522,6 +522,8 @@
     .disc-wrap{width:min(42vw,46vh,500px)}
     .actions2{margin-top:20px}
   }
+  #home .nav{z-index:3}
+  .hero2{justify-content:safe center}
 </style></head><body class="home-intro">
 <main class="stage" id="stage">
 
@@ -776,8 +778,24 @@
   if(location.search.includes('arc=blue')) views.home.classList.add('arc-blue');
   // the ink arc: one huge circle of paper whose edge sweeps from the right side down to the bottom
   const arc=document.querySelector('.arc');
+  // the portrait must never reach the header: shrink the dot until the head clears it
+  function fitPortrait(){
+    const dw=views.home.querySelector('.disc-wrap'), nav=views.home.querySelector('.nav'), hero=views.home.querySelector('.hero2');
+    if(!dw||!nav||!hero) return;
+    dw.style.width='';
+    const prev=dw.style.animation; dw.style.animation='none';
+    for(let i=0;i<40;i++){
+      const r=dw.getBoundingClientRect(), headTop=r.top-0.40*r.height, navBottom=nav.getBoundingClientRect().bottom;
+      const overflow=hero.scrollHeight>hero.clientHeight+1;
+      if(headTop>=navBottom+12 && !overflow) break;
+      if(r.width<120) break;
+      dw.style.width=(r.width*0.93)+'px';
+    }
+    dw.style.animation=prev;
+  }
   function placeArc(){
     if(!arc) return;
+    fitPortrait();
     const W=views.home.clientWidth,H=views.home.clientHeight,wide=W>=600;
     const contact=views.home.querySelector('.contact'), hero=views.home.querySelector('.hero2');
     const hr=views.home.getBoundingClientRect(), cr=contact.getBoundingClientRect();
