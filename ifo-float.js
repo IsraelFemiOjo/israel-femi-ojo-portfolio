@@ -16,4 +16,33 @@
     layer.appendChild(img);
   });
   document.body.insertBefore(layer,document.body.firstChild);
+
+  // on phones there are no empty margins, so each object checks what is in front of it
+  var TEXT='H1,H2,H3,H4,P,LI,A,DT,DD,FIGCAPTION,BUTTON,LABEL,IMG,VIDEO';
+  var mq=window.matchMedia('(max-width:759px)'), queued=false;
+  function check(){
+    queued=false;
+    var imgs=layer.querySelectorAll('.ifo-fl');
+    for(var i=0;i<imgs.length;i++){
+      var el=imgs[i];
+      if(!mq.matches){el.classList.remove('dim');continue;}
+      var r=el.getBoundingClientRect(), hit=false;
+      var pts=[[.5,.5],[.2,.2],[.8,.2],[.2,.8],[.8,.8]];
+      for(var k=0;k<pts.length&&!hit;k++){
+        var x=r.left+r.width*pts[k][0], y=r.top+r.height*pts[k][1];
+        if(x<0||y<0||x>innerWidth||y>innerHeight) continue;
+        var stack=document.elementsFromPoint(x,y);
+        for(var s=0;s<stack.length;s++){
+          var n=stack[s];
+          if(n===el||layer.contains(n)) continue;
+          if(TEXT.indexOf(n.tagName)>-1&&n.tagName.length){ if(TEXT.split(',').indexOf(n.tagName)>-1){hit=true;break;} }
+        }
+      }
+      el.classList.toggle('dim',hit);
+    }
+  }
+  function queue(){ if(!queued){queued=true;requestAnimationFrame(check);} }
+  addEventListener('scroll',queue,{passive:true}); addEventListener('resize',queue);
+  setInterval(queue,700);   // objects drift on their own too
+  addEventListener('load',queue); queue();
 })();
