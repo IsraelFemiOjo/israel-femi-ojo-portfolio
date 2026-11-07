@@ -524,6 +524,10 @@
   }
   #home .nav{z-index:3}
   .hero2{justify-content:safe center}
+  @media (max-width:599px){
+    .contact-h{font-size:clamp(17px,4.8vw,22px)}
+    .contact-mail{font-size:clamp(10.5px,2.9vw,12px);margin-top:5px}
+  }
 </style></head><body class="home-intro">
 <main class="stage" id="stage">
 
@@ -820,6 +824,7 @@
     arc.style.setProperty('--arc-d',(2*R)+'px');arc.style.setProperty('--arc-x',(c[0]-R)+'px');arc.style.setProperty('--arc-y',(c[1]-R)+'px');
     // on phones the hero must finish above where the arc meets the right edge
     if(!wide) hero.style.bottom=Math.max(H-Ay+12,40)+'px'; else hero.style.bottom='';
+    if(!wide) fitPortrait();
     // keep the "Selected" row and the credit on paper: wrap them before the arc
     const crossX=y=>{const d=R*R-(y-c[1])*(y-c[1]);return d>0?c[0]+Math.sqrt(d):W;};
     views.home.querySelectorAll('.strip,.home-credit').forEach(el=>{
@@ -832,7 +837,13 @@
       if(left+r.width>left+room) el.style.maxWidth=Math.max(room,160)+'px';
     });
   }
-  placeArc(); window.addEventListener('resize',placeArc);
+  placeArc();
+  // re-lay out after any size change (window resize, fold/unfold, split screen), twice so every measurement settles
+  let relayout;
+  const onResize=()=>{cancelAnimationFrame(relayout);relayout=requestAnimationFrame(()=>{placeArc();requestAnimationFrame(placeArc);});clearTimeout(onResize.t);onResize.t=setTimeout(placeArc,300);};
+  window.addEventListener('resize',onResize);
+  window.addEventListener('orientationchange',onResize);
+  if('ResizeObserver' in window) new ResizeObserver(onResize).observe(views.home);
   // start the entrance once fonts are in, so nothing is measured twice mid-animation
   if(document.fonts&&document.fonts.status!=='loaded'&&(location.hash.slice(1)||'home')==='home'){
     document.documentElement.classList.add('fonts-wait');
