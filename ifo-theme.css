@@ -1,0 +1,75 @@
+/* IFO: brand layer for the case-study pages.
+   Loaded after each page's own styles. Paper and ink grounds, Archivo / Newsreader / IBM Plex Mono,
+   flat rounded controls and the ballpoint blue as the one accent. */
+
+#ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review {
+  --ifo-paper: #EDE9E0; --ifo-fold: #DEDACF; --ifo-ink: #121318; --ifo-muted: #585A64;
+  --ifo-rule: #C9C4B8; --ifo-ballpoint: #2234C4;
+}
+#ifo-content-strategy { --cs-page: var(--ifo-paper); --cs-band: var(--ifo-fold); --cs-ink: var(--ifo-ink); --cs-muted: var(--ifo-muted); --cs-border: var(--ifo-rule); --cs-glass: var(--ifo-paper); }
+#ifo-launch-brief     { --lb-page: var(--ifo-paper); --lb-band: var(--ifo-fold); --lb-ink: var(--ifo-ink); --lb-muted: var(--ifo-muted); --lb-border: var(--ifo-rule); --lb-glass: var(--ifo-paper); }
+#ifo-unabyss-review   { --ur-page: var(--ifo-paper); --ur-band: var(--ifo-fold); --ur-ink: var(--ifo-ink); --ur-muted: var(--ifo-muted); --ur-border: var(--ifo-rule); --ur-glass: var(--ifo-paper); }
+#ifo-quso-review      { --qr-page: var(--ifo-paper); --qr-band: var(--ifo-fold); --qr-ink: var(--ifo-ink); --qr-muted: var(--ifo-muted); --qr-border: var(--ifo-rule); --qr-glass: var(--ifo-paper); }
+
+html, body { background: #EDE9E0; }
+body, #ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review,
+#ifo-content-strategy button, #ifo-launch-brief button, #ifo-unabyss-review button, #ifo-quso-review button {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+::selection { background: #2234C4; color: #EDE9E0; }
+
+/* glass is retired everywhere */
+:is(#ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review) * {
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+
+/* page titles and section labels: type, not boxes */
+:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading) {
+  border: 0 !important; background: none !important; box-shadow: none !important; padding: 0 !important;
+  font-weight: 800 !important; letter-spacing: -0.04em !important;
+}
+h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
+  content: ""; display: inline-block; width: .15em; height: .15em; margin-left: .05em; border-radius: 50%; background: #2234C4;
+}
+
+/* links and buttons: flat pills, the ballpoint dot slides in on hover */
+:is(.cs-link, .lb-link, .ur-link, .qr-link) {
+  display: inline-flex !important; align-items: center; border: 1.5px solid #121318 !important;
+  background: transparent !important; box-shadow: none !important; border-radius: 999px !important;
+  color: #121318 !important; font-weight: 600 !important;
+  transition: transform 160ms ease, background-color 200ms ease !important;
+}
+:is(.cs-link, .lb-link, .ur-link, .qr-link)::before {
+  content: ""; width: 0; height: 8px; border-radius: 50%; background: #2234C4; margin-right: 0; transform: scale(0);
+  transition: width 260ms cubic-bezier(.34,1.4,.64,1), margin 260ms cubic-bezier(.34,1.4,.64,1), transform 260ms cubic-bezier(.34,1.4,.64,1);
+}
+@media (hover: hover) {
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { transform: none !important; background: transparent !important; }
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover::before { width: 8px; margin-right: 10px; transform: scale(1); }
+}
+:is(.cs-link, .lb-link, .ur-link, .qr-link):active { transform: scale(.96) !important; background: #DEDACF !important; }
+
+/* screenshot and image frames: real UI gets the 6px card radius, no glass */
+:is(.cs-image-frame, .lb-image-frame, .ur-image-frame, .qr-image-frame, .mv-frame) {
+  background: #EDE9E0 !important; border: 1px solid #C9C4B8 !important; border-radius: 6px !important;
+  box-shadow: 8px 14px 26px rgba(18, 19, 24, 0.16) !important;
+}
+:is(.cs-image-frame, .lb-image-frame, .ur-image-frame, .qr-image-frame, .mv-frame) img { border-radius: 4px !important; }
+
+/* panels and lists */
+:is(.cs-workflow-list, .cs-skills-list, .lb-skills-list, .ur-skills-list, .qr-skills-list) {
+  background: #EDE9E0 !important; border: 1px solid #C9C4B8 !important; border-radius: 6px !important; box-shadow: none !important;
+}
+
+/* motion tabs */
+.mv-tab { border-radius: 999px !important; border: 1.5px solid #121318 !important; background: transparent !important; box-shadow: none !important; color: #121318 !important; font-weight: 600; }
+.mv-tab[aria-selected="true"] { background: #121318 !important; color: #EDE9E0 !important; }
+
+/* the logo */
+:is(.cs-logo, .lb-logo, .ur-logo, .qr-logo) img { height: 26px !important; width: auto !important; }
+@media (min-width: 600px) { :is(.cs-logo, .lb-logo, .ur-logo, .qr-logo) img { height: 30px !important; } }
+
+/* inline text links */
+:is(#ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review) p a {
+  text-decoration-color: #2234C4; text-decoration-thickness: 2px; text-underline-offset: 3px;
+}

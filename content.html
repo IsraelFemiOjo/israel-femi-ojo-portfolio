@@ -14,19 +14,23 @@
   <meta property="og:image" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
   <meta property="og:image:secure_url" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1536">
-  <meta property="og:image:height" content="864">
-  <meta property="og:image:alt" content="IFO logo in black, cream and orange.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Israel Femi-Ojo on the IFO: blue dot.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@israelfemiojo">
   <meta name="twitter:title" content="Content strategy — Israel Femi-Ojo">
   <meta name="twitter:description" content="Research, storytelling and distribution by Israel Femi-Ojo, with original posts, video, replies and performance evidence.">
   <meta name="twitter:image" content="https://israelfemiojo.github.io/israel-femi-ojo-portfolio/portfolio-preview.jpg">
-  <meta name="twitter:image:alt" content="IFO logo in black, cream and orange.">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta name="twitter:image:alt" content="Israel Femi-Ojo on the IFO: blue dot.">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#EDE9E0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
 html {
   color-scheme: light;
@@ -541,12 +545,45 @@ body {
 }
 
 </style>
+
+<style>
+  #ifo-content-strategy .cs-proof{width:min(100%,980px);margin:8px auto 0;padding:0 20px}
+  #ifo-content-strategy .cs-platforms{padding:0 20px}
+  #ifo-content-strategy .cs-proof-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 22px;margin:0;padding:22px 0;border-top:1px solid #C9C4B8;border-bottom:1px solid #C9C4B8}
+  #ifo-content-strategy .cs-proof-list div{display:flex;flex-direction:column-reverse;text-align:left}
+  #ifo-content-strategy .cs-proof-list dd{margin:0;font-size:clamp(30px,6vw,46px);font-weight:800;letter-spacing:-.035em;line-height:1}
+  #ifo-content-strategy .cs-proof-list dt{margin-top:6px;font:500 12px/1.35 "IBM Plex Mono",monospace;color:#585A64;text-transform:uppercase;letter-spacing:.05em}
+  @media (min-width:760px){#ifo-content-strategy .cs-proof-list{grid-template-columns:repeat(4,1fr)}}
+  #ifo-content-strategy .cs-platforms{width:min(100%,980px);margin:48px auto 0;display:flex;flex-direction:column;align-items:center}
+  #ifo-content-strategy .cs-tabs{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;justify-content:center}
+  #ifo-content-strategy .cs-tabs .mv-tab{cursor:pointer;font:600 15px Archivo,sans-serif;padding:9px 18px}
+  #ifo-content-strategy .cs-panel{width:100%}
+  #ifo-content-strategy .cs-panel[hidden]{display:none}
+  #ifo-content-strategy .cs-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:640px;margin:0 auto}
+  #ifo-content-strategy .cs-video-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#121318;text-align:left}
+  #ifo-content-strategy .cs-video-card .cs-image-frame{display:block;padding:6px;transition:transform 220ms ease}
+  #ifo-content-strategy .cs-video-card img{display:block;width:100%;height:auto}
+  @media (hover:hover){#ifo-content-strategy .cs-video-card:hover .cs-image-frame{transform:translateY(-4px)}}
+  #ifo-content-strategy .cs-video-meta{font:500 11px/1.4 "IBM Plex Mono",monospace;color:#2234C4;letter-spacing:.02em}
+  #ifo-content-strategy .cs-video-title{font-weight:700;font-size:16px;letter-spacing:-.02em;line-height:1.2}
+  #ifo-content-strategy .cs-analytics{max-width:520px;margin:36px auto 0}
+  #ifo-content-strategy .cs-panel .cs-post-action{margin-top:26px;display:flex;justify-content:center}
+  #ifo-content-strategy .cs-yt-note{max-width:520px;margin:24px auto 0;text-align:center;font-size:15px;line-height:1.5;color:#585A64}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const tabs=[...document.querySelectorAll('.cs-tabs [role="tab"]')];
+  function pick(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];pick(n);n.focus();}});});
+});
+</script>
+<link rel="stylesheet" href="ifo-theme.css">
 </head>
 <body>
   <div id="ifo-content-strategy">
     <header class="cs-navigation">
       <a class="cs-logo" href="index.html#home" aria-label="Home">
-        <img src="assets/ifo-logo.svg" alt="IFO" width="1600" height="900">
+        <img src="assets/ifo-wordmark.svg" alt="IFO:" width="471" height="206">
       </a>
     </header>
 
@@ -554,7 +591,7 @@ body {
       <section class="cs-intro" aria-labelledby="cs-title">
         <h1 class="cs-heading cs-page-title" id="cs-title" data-motion="heading">Content strategy</h1>
         <p class="cs-subtitle" data-motion="lift" style="--cs-delay:100ms">Research, storytelling and distribution built around what people really resonate with.</p>
-        <p class="cs-intro-copy" data-motion="lift" style="--cs-delay:180ms">I research the topic, find an entry point that fits the brand and shape the content for its audience. The work below includes original posts, video and replies.</p>
+        <p class="cs-intro-copy" data-motion="lift" style="--cs-delay:180ms">I research the topic, find an entry point that fits the brand and shape the content for its audience. The work below covers posts, short videos and replies across X, TikTok and YouTube.</p>
       </section>
 
       <section class="cs-workflow cs-band" aria-labelledby="cs-workflow-title">
@@ -592,6 +629,44 @@ body {
         <p class="cs-workflow-note" data-motion="lift">This is a typical sequence. The steps can overlap or happen in a different order.</p>
       </section>
 
+      <section class="cs-proof" aria-label="Results">
+        <dl class="cs-proof-list">
+          <div><dd>500.9K</dd><dt>views on one TikTok</dt></div>
+          <div><dd>547.7K</dd><dt>TikTok views in 28 days</dt></div>
+          <div><dd>624K</dd><dt>X impressions in my first month</dt></div>
+          <div><dd>OpenAI</dd><dt>asked to share a thread I wrote</dt></div>
+        </dl>
+      </section>
+
+      <section class="cs-platforms" aria-labelledby="cs-platforms-title">
+        <h2 class="cs-heading" id="cs-platforms-title">The work</h2>
+        <div class="cs-tabs" role="tablist" aria-label="Platform">
+          <button class="mv-tab" role="tab" id="tab-tiktok" aria-controls="panel-tiktok" aria-selected="true">TikTok</button>
+          <button class="mv-tab" role="tab" id="tab-x" aria-controls="panel-x" aria-selected="false" tabindex="-1">X</button>
+          <button class="mv-tab" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="false" tabindex="-1">YouTube</button>
+        </div>
+
+        <div class="cs-panel" role="tabpanel" id="panel-tiktok" aria-labelledby="tab-tiktok">
+          <div class="cs-video-grid">
+            <a class="cs-video-card" href="https://vt.tiktok.com/ZSprQCB9h/" target="_blank" rel="noopener noreferrer">
+              <span class="cs-image-frame"><img src="assets/tiktok-looked-back.webp" alt="TikTok video: She looked back, once. The em dash circled and labelled AI." width="540" height="959" loading="lazy"></span>
+              <span class="cs-video-meta">TikTok · 500.9K views · 77.5K likes · 4,912 saves</span>
+              <span class="cs-video-title">Why an em dash doesn't mean AI wrote it</span>
+            </a>
+            <a class="cs-video-card" href="https://vt.tiktok.com/ZSprQnV8S/" target="_blank" rel="noopener noreferrer">
+              <span class="cs-image-frame"><img src="assets/tiktok-em-dash.webp" alt="TikTok video: How to use the em dash" width="540" height="959" loading="lazy"></span>
+              <span class="cs-video-meta">TikTok · 1,800 views · reply to a viewer's question</span>
+              <span class="cs-video-title">How to use the em dash</span>
+            </a>
+          </div>
+          <figure class="cs-analytics">
+            <div class="cs-image-frame"><img src="assets/tiktok-analytics-28d.webp" alt="TikTok analytics, 9 Oct to 5 Nov: 547.7K post views, 4.8K profile views, 80K likes, 601 comments, 1.8K shares" width="900" height="814" loading="lazy"></div>
+            <figcaption>My first 28 days on TikTok: 547.7K post views, 80K likes and 1.8K shares. 95.8% of views came from the For You page.</figcaption>
+          </figure>
+          <div class="cs-post-action"><a class="cs-link" href="https://www.tiktok.com/@israelfemiojo1" target="_blank" rel="noopener noreferrer">See all on TikTok</a></div>
+        </div>
+
+        <div class="cs-panel" role="tabpanel" id="panel-x" aria-labelledby="tab-x" hidden>
       <section class="cs-evidence" aria-labelledby="cs-posts-title">
         <h2 class="cs-heading" id="cs-posts-title" data-motion="heading">Original posts</h2>
         <figure class="cs-square">
@@ -605,7 +680,7 @@ body {
         </div>
       </section>
 
-      <section class="cs-evidence cs-band" aria-labelledby="cs-video-title">
+      <section class="cs-evidence" aria-labelledby="cs-video-title">
         <h2 class="cs-heading" id="cs-video-title" data-motion="heading">Video</h2>
         <figure class="cs-landscape">
           <div class="cs-image-frame" data-motion="frame">
@@ -643,7 +718,7 @@ body {
         </div>
       </section>
 
-      <section class="cs-evidence cs-band" aria-labelledby="cs-performance-title">
+      <section class="cs-evidence" aria-labelledby="cs-performance-title">
         <h2 class="cs-heading" id="cs-performance-title" data-motion="heading">Performance</h2>
         <figure class="cs-analytics">
           <div class="cs-image-frame" data-motion="frame">
@@ -667,6 +742,27 @@ body {
           <figcaption data-motion="lift" style="--cs-delay:100ms">OpenAI reached out to one of the accounts I manage and asked to share a thread I wrote about saving money on flights with ChatGPT.</figcaption>
         </figure>
       </section>
+        <div class="cs-post-action"><a class="cs-link" href="https://x.com/israelfemiojo" target="_blank" rel="noopener noreferrer">See all on X</a></div>
+        </div>
+
+        <div class="cs-panel" role="tabpanel" id="panel-youtube" aria-labelledby="tab-youtube" hidden>
+          <div class="cs-video-grid">
+            <a class="cs-video-card" href="https://www.youtube.com/shorts/8xDQ3fWL8Fs" target="_blank" rel="noopener noreferrer">
+              <span class="cs-image-frame"><img src="assets/yt-follow-the-e.webp" alt="YouTube Short: Follow the e to find the hidden sentence" width="480" height="853" loading="lazy"></span>
+              <span class="cs-video-meta">YouTube · 308 views · watched 154.5% on average</span>
+              <span class="cs-video-title">Follow the e: can you find the hidden sentence?</span>
+            </a>
+            <a class="cs-video-card" href="https://www.youtube.com/shorts/sLVfSp5ImPY" target="_blank" rel="noopener noreferrer">
+              <span class="cs-image-frame"><img src="assets/yt-whatsapp-message.webp" alt="YouTube Short: where a WhatsApp message goes before it reaches your friend" width="480" height="853" loading="lazy"></span>
+              <span class="cs-video-meta">YouTube · 1.2K views · 65.8% average watched</span>
+              <span class="cs-video-title">Where your WhatsApp message goes before it reaches your friend</span>
+            </a>
+          </div>
+          <p class="cs-yt-note">Average watch time above 100% means people replayed the short. My new channel has 4.6K views so far.</p>
+          <div class="cs-post-action"><a class="cs-link" href="https://www.youtube.com/@aiwithizzy" target="_blank" rel="noopener noreferrer">See all on YouTube</a></div>
+        </div>
+      </section>
+
       <section class="cs-applied-skills cs-band" aria-labelledby="cs-skills-title">
         <h2 class="cs-heading" id="cs-skills-title" data-motion="heading">Skills applied</h2>
         <ul class="cs-skills-list" role="list" data-motion="lift">
