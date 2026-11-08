@@ -317,6 +317,10 @@
   .copy2 h1 .w{display:inline-block}
   .copy2 h1 .dot{color:var(--ballpoint)}
   .tail{margin-top:10px;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:19px;line-height:1.2;color:var(--ink);max-width:28ch}
+  .proof{margin-top:10px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;line-height:1.5;letter-spacing:.01em;color:var(--ink);max-width:46ch}
+  .proof span{color:var(--ballpoint);padding:0 2px}
+  .proof i{font-style:normal;display:block}
+  .proof i::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--ballpoint);margin:0 8px 2px 0;vertical-align:middle}
   .actions2{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px}
   .pill{padding:11px 16px;font-size:14px;font-weight:600;letter-spacing:-.01em}
   .strip{position:absolute;left:var(--pad);right:var(--pad);bottom:52px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;
@@ -333,6 +337,7 @@
     .disc-wrap{width:min(42vw,52vh,500px);margin-top:9%;flex:none}
     .copy2 h1{font-size:clamp(56px,8.4vw,112px)}
     .tail{font-size:clamp(20px,2vw,26px);margin-top:16px}
+    .proof{font-size:12.5px;max-width:58ch;margin-top:14px}
     .kicker{font-size:12px}
     .actions2{margin-top:28px}
     .pill{padding:13px 22px;font-size:16px}
@@ -352,6 +357,7 @@
     .home-intro #home[data-pos="home"] h1 .w:nth-child(1){animation-delay:460ms}
     .home-intro #home[data-pos="home"] h1 .w:nth-child(2){animation-delay:600ms}
     .home-intro #home[data-pos="home"] .tail{animation:fade-up 560ms var(--ease) 900ms both}
+    .home-intro #home[data-pos="home"] .proof{animation:fade-up 520ms var(--ease) 980ms both}
     .home-intro #home[data-pos="home"] .actions2{animation:fade-up 520ms var(--ease) 1060ms both}
     .home-intro #home[data-pos="home"] .strip{animation:fade-up 520ms var(--ease) 1200ms both}
   }
@@ -484,6 +490,7 @@
     .home-intro #home[data-pos="home"] h1 .w:nth-child(1){animation-delay:300ms}
     .home-intro #home[data-pos="home"] h1 .w:nth-child(2){animation-delay:390ms}
     .home-intro #home[data-pos="home"] .tail{animation:soft-in 800ms var(--smooth) 520ms both}
+    .home-intro #home[data-pos="home"] .proof{animation:soft-in 800ms var(--smooth) 570ms both}
     .home-intro #home[data-pos="home"] .actions2{animation:soft-in 800ms var(--smooth) 620ms both}
     .home-intro #home[data-pos="home"] .strip{animation:soft-in 800ms var(--smooth) 720ms both}
     .home-intro #home[data-pos="home"] .arc{animation:arc-glide 1300ms var(--smooth) 380ms both}
@@ -584,6 +591,7 @@
         <p class="kicker">Israel Femi-Ojo</p>
         <h1><span class="w">Content</span> <span class="w">Strategist<b class="dot">.</b></span></h1>
         <p class="tail">I plan, design, animate and build content for products.</p>
+        <p class="proof"><i>105M+ X impressions in 12 months</i><i>Campaigns for CapCut, HeyGen and Gamma AI</i><i>A thread OpenAI asked to share</i></p>
         <div class="actions2">
           <a class="glass pill pill-primary" href="#work">View work</a>
           <a class="glass pill" href="#skills">Skills &amp; experience</a>
@@ -650,13 +658,6 @@
           <h2 id="experience-heading">Experience</h2>
           <div class="glass experience-panel">
             <article class="experience-entry">
-                <div>
-                  <div class="experience-heading"><h3>Independent Creator</h3><time>2026–present</time></div>
-                  <p class="experience-org">TikTok @israelfemiojo1 · YouTube @aiwithizzy</p>
-                </div>
-                <p class="experience-copy">Short explainer videos that make AI, tech and the internet make sense. 547.7K TikTok views in the first 28 days, with one video passing 500K views and 77K likes.</p>
-              </article>
-              <article class="experience-entry">
               <div>
                 <div class="experience-heading">
                   <h3>Content Strategist &amp; X Ghostwriter</h3>
@@ -664,29 +665,26 @@
                 </div>
                 <p class="experience-org">The AI Colony · Remote</p>
               </div>
-              <p class="experience-copy">Ghostwriting and content strategy for two AI and technology accounts serving audiences of 620K+ and 550K+, including launch and sponsored campaigns for Tripo AI, OpenArt, CapCut, Topview AI, HeyGen, Gamma AI and BytePlus/Seedance.</p>
+              <p class="experience-copy">Plan, write and schedule X content for two AI and technology accounts with 620K+ and 550K+ followers. 105M+ impressions and 1.4M engagements in 12 months, with single days passing 3M impressions. Sponsored campaigns for CapCut, HeyGen, Gamma AI, BytePlus/Seedance, Tripo AI, OpenArt and Topview AI. Wrote a thread on saving money on flights with ChatGPT that OpenAI's official account asked permission to share.</p>
+            </article>
+
+            <article class="experience-entry">
+              <div>
+                <div class="experience-heading"><h3>Independent Content Creator &amp; Researcher</h3><time datetime="2026">2026–present</time></div>
+                <p class="experience-org">TikTok @israelfemiojo1 · YouTube @aiwithizzy · X</p>
+              </div>
+              <p class="experience-copy">Short explainer videos that make AI, tech and the internet make sense: 547.7K TikTok views and 80K likes in the first 28 days, with one video passing 500K views. Founder-facing product reviews and controlled AI evaluations; my Unabyss report led the co-founder to confirm an import fault and put fixes into development.</p>
             </article>
 
             <article class="experience-entry">
               <div>
                 <div class="experience-heading">
                   <h3>Market Research &amp; Newsletter Writer</h3>
-                  <time datetime="2025">2025–present</time>
+                  <time datetime="2025-03">Mar 2025–present</time>
                 </div>
                 <p class="experience-org">Solid Minerals Development Fund · Remote</p>
               </div>
-              <p class="experience-copy">Weekly, source-attributed commodity analysis covering gold, silver, uranium and energy minerals for the Investment, Strategy &amp; Operations Department.</p>
-            </article>
-
-            <article class="experience-entry">
-              <div>
-                <div class="experience-heading">
-                  <h3>Independent Content Strategy &amp; AI Research</h3>
-                  <time datetime="2026">2026–present</time>
-                </div>
-                <p class="experience-org">Portfolio project</p>
-              </div>
-              <p class="experience-copy">Founder-facing product reviews, homepage analysis and controlled AI evaluations focused on clarity, evidence and claim consistency.</p>
+              <p class="experience-copy">A weekly, source-attributed commodity brief on gold, silver, uranium and energy minerals for the Investment, Strategy &amp; Operations Department: 80+ consecutive issues since March 2025. The Executive Secretary reads each issue and circulates it to senior government stakeholders.</p>
             </article>
           </div>
         </section>
