@@ -807,16 +807,6 @@
   });
   window.addEventListener('popstate', ()=>show(location.hash.slice(1)||'home', false));
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') show('home'); });
-  // the portrait leans toward the cursor; the dot drifts the other way, so the two read as separate paper layers
-  const disc = document.querySelector('.disc-wrap');
-  if(disc && !reduceMotion && window.matchMedia('(hover:hover)').matches){
-    views.home.addEventListener('pointermove', e=>{
-      const r = disc.getBoundingClientRect();
-      const x = (e.clientX-(r.left+r.width/2))/window.innerWidth, y=(e.clientY-(r.top+r.height/2))/window.innerHeight;
-      disc.style.setProperty('--tx',(x*18).toFixed(1)+'px'); disc.style.setProperty('--ty',(y*12).toFixed(1)+'px');
-    });
-    views.home.addEventListener('pointerleave', ()=>{disc.style.setProperty('--tx','0px');disc.style.setProperty('--ty','0px');});
-  }
   // ballpoint scribble: a loose, hand-drawn loop that draws itself around a title on hover
   const scribble='<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M178 13C146 1 54 2 20 15C-2 24 4 47 38 54C88 63 168 59 191 40C204 28 188 11 152 7C132 5 112 6 97 9"/></svg>';
   document.querySelectorAll('.work-link>span:last-child, .strip a, .contact-mail').forEach(el=>{
@@ -828,19 +818,19 @@
   // the ink arc: one huge circle of paper whose edge sweeps from the right side down to the bottom
   const arc=document.querySelector('.arc');
   // the portrait must never reach the header: shrink the dot until the head clears it
+  // layout box relative to the home view; offsets ignore transforms, so a running entrance animation is never touched
+  function lbox(el){let x=0,y=0,e=el;while(e&&e!==views.home){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent;}return {left:x,top:y,width:el.offsetWidth,height:el.offsetHeight};}
   function fitPortrait(){
     const dw=views.home.querySelector('.disc-wrap'), nav=views.home.querySelector('.nav'), hero=views.home.querySelector('.hero2');
     if(!dw||!nav||!hero) return;
     dw.style.width='';
-    const prev=dw.style.animation; dw.style.animation='none';
     for(let i=0;i<40;i++){
-      const r=dw.getBoundingClientRect(), headTop=r.top-0.40*r.height, navBottom=nav.getBoundingClientRect().bottom;
+      const r=lbox(dw), headTop=r.top-0.40*r.height, nb=lbox(nav), navBottom=nb.top+nb.height;
       const overflow=hero.scrollHeight>hero.clientHeight+1;
       if(headTop>=navBottom+12 && !overflow) break;
       if(r.width<120) break;
       dw.style.width=(r.width*0.93)+'px';
     }
-    dw.style.animation=prev;
   }
   function placeArc(){
     if(!arc) return;
@@ -859,9 +849,8 @@
     // no near-miss tangents: the blue dot either clears the arc by a real gap or overlaps it decisively
     const dw=views.home.querySelector('.disc-wrap');
     if(dw){
-      const prev=dw.style.animation; dw.style.animation='none';
-      const dr=dw.getBoundingClientRect(); dw.style.animation=prev;
-      const r=dr.width/2, dc=[dr.left-hr.left+r, dr.top-hr.top+r];
+      const dr=lbox(dw);
+      const r=dr.width/2, dc=[dr.left+r, dr.top+r];
       const into=()=>Math.hypot(dc[0]-c[0],dc[1]-c[1])+r-R;   // how far the dot reaches into the ink (negative = gap)
       const gap=wide?48:32, bite=0.32*r;
       for(let i=0;i<120 && into()>-gap && into()<bite;i++){ Ay-=8; Bx-=8; c=centre([W,Ay],[Bx,H]); }
@@ -882,20 +871,25 @@
       if(left+r.width>left+room) el.style.maxWidth=Math.max(room,160)+'px';
     });
   }
-  placeArc();
+  placeArc(); lastSize=views.home.clientWidth+'x'+views.home.clientHeight;
   // re-lay out after any size change (window resize, fold/unfold, split screen), twice so every measurement settles
   let relayout;
-  const onResize=()=>{cancelAnimationFrame(relayout);relayout=requestAnimationFrame(()=>{placeArc();requestAnimationFrame(placeArc);});clearTimeout(onResize.t);onResize.t=setTimeout(placeArc,300);};
+  let lastSize='';
+  const onResize=()=>{const sz=views.home.clientWidth+'x'+views.home.clientHeight;if(sz===lastSize)return;lastSize=sz;cancelAnimationFrame(relayout);relayout=requestAnimationFrame(()=>{placeArc();requestAnimationFrame(placeArc);});clearTimeout(onResize.t);onResize.t=setTimeout(placeArc,300);};
   window.addEventListener('resize',onResize);
   window.addEventListener('orientationchange',onResize);
   if('ResizeObserver' in window) new ResizeObserver(onResize).observe(views.home);
   // start the entrance once fonts are in, so nothing is measured twice mid-animation
-  if(document.fonts&&document.fonts.status!=='loaded'&&(location.hash.slice(1)||'home')==='home'){
+  const pimg=views.home.querySelector('.clip img');
+  const imgReady=pimg&&!pimg.complete?(pimg.decode?pimg.decode().catch(()=>{}):new Promise(r=>pimg.addEventListener('load',r,{once:true}))):Promise.resolve();
+  const fontsReady=document.fonts?document.fonts.ready:Promise.resolve();
+  if(((document.fonts&&document.fonts.status!=='loaded')||(pimg&&!pimg.complete))&&(location.hash.slice(1)||'home')==='home'){
     document.documentElement.classList.add('fonts-wait');
     let started=false;
     const go=()=>{if(started)return;started=true;placeArc();document.documentElement.classList.remove('fonts-wait');animateHome();};
-    document.fonts.ready.then(go); setTimeout(go,800);
-  }else if(document.fonts&&document.fonts.ready){document.fonts.ready.then(placeArc);}
+    Promise.all([fontsReady,imgReady]).then(go); setTimeout(go,1200);
+  }
+  fontsReady.then(placeArc);
   show(location.hash.slice(1)||'home', false);
 })();
 </script>
