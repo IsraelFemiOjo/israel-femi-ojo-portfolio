@@ -51,4 +51,5 @@ a:active .scrib-t path{stroke-dashoffset:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 /* calm buttons: no hover dot, just a quiet fill */
 .hub-pill::before{content:none;display:none}
-@media (hover:hover){.hub-pill:hover{background:rgba(18,19,24,.06)}.hub-pill-primary:hover{background:#2a2b33}}
+.hub-pill:not(.hub-pill-primary){background:var(--paper,#EDE9E0)}
+@media (hover:hover){.hub-pill:not(.hub-pill-primary):hover{background:#E3DFD6}.hub-pill-primary:hover{background:#2a2b33}}

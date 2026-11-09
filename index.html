@@ -566,10 +566,12 @@
   .pill::before,.skills-action::before{content:none;display:none}
   .glass{transition:background 180ms var(--ease),color 180ms var(--ease),transform 120ms var(--ease)}
   @media (hover:hover){
-    .pill:hover,.skills-action:hover{background:rgba(18,19,24,.06)}
+    .pill:hover,.skills-action:hover{background:#E3DFD6}
     .pill-primary:hover{background:#2a2b33}
   }
   .glass:active{transform:scale(.98)}
+  /* outline buttons sit on solid paper so text scrolling behind them never shows through */
+  .pill:not(.pill-primary),.skills-action{background:var(--paper)}
   /* proof: a quiet brand row, like a logo bar but in type */
   .proof{display:flex;flex-direction:column;gap:6px;margin-top:16px;max-width:none}
   .proof-label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}

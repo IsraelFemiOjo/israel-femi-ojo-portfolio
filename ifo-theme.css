@@ -77,5 +77,14 @@ h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
 /* calm buttons: no hover dot, just a quiet fill */
 :is(.cs-link, .lb-link, .ur-link, .qr-link)::before { content: none !important; display: none !important; }
 @media (hover: hover) {
-  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: rgba(18,19,24,.06) !important; }
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: #E3DFD6 !important; }
 }
+
+/* section bands: no solid fill, so the floating objects never get sliced by a band edge; a hairline keeps the rhythm */
+:is(.cs-band, .ur-band, .qr-band, .lb-band) {
+  background: transparent !important;
+  border-top: 1px solid var(--ifo-rule); border-bottom: 1px solid var(--ifo-rule);
+}
+/* outline buttons sit on solid paper so text scrolling behind them never shows through */
+:is(.cs-link, .lb-link, .ur-link, .qr-link) { background: #EDE9E0 !important; }
+@media (hover: hover) { :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: #E3DFD6 !important; } }
