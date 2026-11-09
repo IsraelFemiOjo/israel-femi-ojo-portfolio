@@ -49,3 +49,6 @@ a:active .scrib-t path{stroke-dashoffset:0}
 .hub-note{margin-top:20px;font:500 11px/1.5 "IBM Plex Mono",monospace;color:var(--muted)}
 @media (min-width:760px){.prod{grid-template-columns:1.1fr 1fr;align-items:center;gap:36px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* calm buttons: no hover dot, just a quiet fill */
+.hub-pill::before{content:none;display:none}
+@media (hover:hover){.hub-pill:hover{background:rgba(18,19,24,.06)}.hub-pill-primary:hover{background:#2a2b33}}

@@ -317,10 +317,7 @@
   .copy2 h1 .w{display:inline-block}
   .copy2 h1 .dot{color:var(--ballpoint)}
   .tail{margin-top:10px;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:19px;line-height:1.2;color:var(--ink);max-width:28ch}
-  .proof{margin-top:10px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;line-height:1.5;letter-spacing:.01em;color:var(--ink);max-width:46ch}
-  .proof span{color:var(--ballpoint);padding:0 2px}
-  .proof i{font-style:normal;display:block}
-  .proof i::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--ballpoint);margin:0 8px 2px 0;vertical-align:middle}
+  .proof{margin-top:10px}
   .actions2{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px}
   .pill{padding:11px 16px;font-size:14px;font-weight:600;letter-spacing:-.01em}
   .strip{position:absolute;left:var(--pad);right:var(--pad);bottom:52px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;
@@ -337,7 +334,6 @@
     .disc-wrap{width:min(42vw,52vh,500px);margin-top:9%;flex:none}
     .copy2 h1{font-size:clamp(56px,8.4vw,112px)}
     .tail{font-size:clamp(20px,2vw,26px);margin-top:16px}
-    .proof{font-size:12.5px;max-width:58ch;margin-top:14px}
     .kicker{font-size:12px}
     .actions2{margin-top:28px}
     .pill{padding:13px 22px;font-size:16px}
@@ -566,6 +562,35 @@
   .skill-groups dd{margin:0;font-size:13px;line-height:1.62}
   @media (min-width:600px){.skill-groups dd{font-size:14px}.skill-groups>div{display:grid;grid-template-columns:150px 1fr;gap:18px}.skill-groups dt{margin:3px 0 0}}
   .experience-copy a{text-decoration:underline;text-decoration-color:var(--ballpoint);text-underline-offset:3px}
+  /* calm buttons: no hover dot, just a quiet fill */
+  .pill::before,.skills-action::before{content:none;display:none}
+  .glass{transition:background 180ms var(--ease),color 180ms var(--ease),transform 120ms var(--ease)}
+  @media (hover:hover){
+    .pill:hover,.skills-action:hover{background:rgba(18,19,24,.06)}
+    .pill-primary:hover{background:#2a2b33}
+  }
+  .glass:active{transform:scale(.98)}
+  /* proof: a quiet brand row, like a logo bar but in type */
+  .proof{display:flex;flex-direction:column;gap:6px;margin-top:16px;max-width:none}
+  .proof-label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .proof-names{display:flex;flex-wrap:wrap;gap:4px 18px}
+  .proof-names b{font-family:"Archivo",system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--ink);opacity:.82;white-space:nowrap}
+  @media (min-width:1024px){.proof-names b{font-size:17px}.proof{margin-top:22px}}
+  @media (max-width:599px){.proof{margin-top:12px;gap:4px}.proof-names{gap:2px 14px}.proof-names b{font-size:13.5px}}
+  @media (max-width:359px){.proof-names b:nth-child(5){display:none}}
+  /* calm entrance: three moves - portrait, text block, corner */
+  @media (prefers-reduced-motion:no-preference){
+    .home-intro #home[data-pos="home"] :is(.kicker,h1 .w,.tail,.proof,.actions2){animation:none}
+    .home-intro #home[data-pos="home"] .copy2{animation:soft-in 900ms var(--smooth) 280ms both}
+    .home-intro #home[data-pos="home"] :is(.strip,.home-credit){animation:soft-in 900ms var(--smooth) 520ms both}
+    .home-intro #home[data-pos="home"] .arc{animation:arc-glide 1300ms var(--smooth) 520ms both}
+    .home-intro #home[data-pos="home"] .contact{animation:soft-in 900ms var(--smooth) 760ms both}
+  }
+  /* quieter contact: a small sign-off in the corner, not a second headline */
+  .contact-h{font-size:17px!important;font-weight:700;letter-spacing:-.02em}
+  .contact-mail{font-size:12px!important;margin-top:5px!important}
+  @media (min-width:1024px){.contact-h{font-size:19px!important}.contact-mail{font-size:13px!important}}
+  @media (max-width:599px){.contact-h{font-size:15px!important}.contact-mail{font-size:11px!important;margin-top:4px!important}}
 </style></head><body class="home-intro">
 <main class="stage" id="stage">
 
@@ -591,7 +616,7 @@
         <p class="kicker">Israel Femi-Ojo</p>
         <h1><span class="w">Content</span> <span class="w">Strategist<b class="dot">.</b></span></h1>
         <p class="tail">I plan, design, animate and build content for products.</p>
-        <p class="proof"><i>105M+ X impressions in 12 months</i><i>Campaigns for CapCut, HeyGen and Gamma AI</i><i>A thread OpenAI asked to share</i></p>
+        <p class="proof"><span class="proof-label">Campaigns for</span><span class="proof-names"><b>CapCut</b><b>HeyGen</b><b>Gamma AI</b><b>OpenArt</b><b>Tripo AI</b></span></p>
         <div class="actions2">
           <a class="glass pill pill-primary" href="#work">View work</a>
           <a class="glass pill" href="#skills">Skills &amp; experience</a>
@@ -871,10 +896,10 @@
       if(left+r.width>left+room) el.style.maxWidth=Math.max(room,160)+'px';
     });
   }
-  placeArc(); lastSize=views.home.clientWidth+'x'+views.home.clientHeight;
+  placeArc();
   // re-lay out after any size change (window resize, fold/unfold, split screen), twice so every measurement settles
   let relayout;
-  let lastSize='';
+  let lastSize=views.home.clientWidth+'x'+views.home.clientHeight;
   const onResize=()=>{const sz=views.home.clientWidth+'x'+views.home.clientHeight;if(sz===lastSize)return;lastSize=sz;cancelAnimationFrame(relayout);relayout=requestAnimationFrame(()=>{placeArc();requestAnimationFrame(placeArc);});clearTimeout(onResize.t);onResize.t=setTimeout(placeArc,300);};
   window.addEventListener('resize',onResize);
   window.addEventListener('orientationchange',onResize);

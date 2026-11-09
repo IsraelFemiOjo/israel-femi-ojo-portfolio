@@ -73,3 +73,9 @@ h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
 :is(#ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review) p a {
   text-decoration-color: #2234C4; text-decoration-thickness: 2px; text-underline-offset: 3px;
 }
+
+/* calm buttons: no hover dot, just a quiet fill */
+:is(.cs-link, .lb-link, .ur-link, .qr-link)::before { content: none !important; display: none !important; }
+@media (hover: hover) {
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: rgba(18,19,24,.06) !important; }
+}
