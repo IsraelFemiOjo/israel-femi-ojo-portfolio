@@ -38,14 +38,14 @@ html {
   scroll-padding-bottom: calc(112px + env(safe-area-inset-bottom));
 }
 
-body { margin: 0; background: #fafafa; }
+body { margin: 0; background: #EDE9E0; }
 body.ur-reading { overflow: hidden; }
 
 #ifo-unabyss-review {
-  --ur-page: #fafafa;
-  --ur-band: #eff1f1;
-  --ur-ink: #171717;
-  --ur-muted: #626262;
+  --ur-page: #EDE9E0;
+  --ur-band: var(--band);
+  --ur-ink: #121318;
+  --ur-muted: #585A64;
   --ur-border: rgba(24, 24, 24, 0.12);
   --ur-glass: rgba(255, 255, 255, 0.69);
   --ur-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -140,7 +140,7 @@ body.ur-reading { overflow: hidden; }
 #ifo-unabyss-review figcaption p + p { margin-top: 12px; }
 #ifo-unabyss-review figcaption .ur-sender { font-size: 12px; }
 #ifo-unabyss-review .ur-objective { max-width: 53ch; margin: 28px auto 0; }
-#ifo-unabyss-review .ur-objective h2 { margin: 0; font-size: 15px; font-weight: 500; }
+#ifo-unabyss-review .ur-objective h2 { margin: 0; font-size: 16px; font-weight: 500; }
 #ifo-unabyss-review .ur-objective p { margin: 9px auto 0; color: var(--ur-muted); }
 #ifo-unabyss-review .ur-objective .ur-review-note { margin-top: 12px; font-size: 12px; }
 #ifo-unabyss-review .ur-band { background: var(--ur-band); }
@@ -212,7 +212,7 @@ body.ur-reading { overflow: hidden; }
 }
 
 #ifo-unabyss-review .ur-link:active { transform: translateY(1px) scale(0.985); }
-#ifo-unabyss-review :is(a, button, [tabindex]):focus-visible { outline: 3px solid #737d83; outline-offset: 4px; }
+#ifo-unabyss-review :is(a, button, [tabindex]):focus-visible { outline: 3px solid #121318; outline-offset: 4px; }
 #ifo-unabyss-review .ur-link:disabled { opacity: 0.45; cursor: default; transform: none; }
 
 #ifo-unabyss-review .ur-footer {
@@ -256,7 +256,7 @@ body.ur-reading { overflow: hidden; }
 }
 
 #ifo-unabyss-review .ur-reader-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-#ifo-unabyss-review .ur-reader-header h2 { margin: 0; font-size: 15px; font-weight: 500; }
+#ifo-unabyss-review .ur-reader-header h2 { margin: 0; font-size: 16px; font-weight: 500; }
 #ifo-unabyss-review .ur-reader-controls { display: flex; justify-content: center; align-items: center; gap: 12px; }
 #ifo-unabyss-review .ur-reader-controls .ur-link { padding-inline: 12px; }
 #ifo-unabyss-review #ur-reader-scale { min-width: 4ch; font-size: 13px; }
@@ -325,6 +325,7 @@ body.ur-reading { overflow: hidden; }
 </style>
 <link rel="stylesheet" href="ifo-theme.css">
 <link rel="stylesheet" href="ifo-float.css">
+<link rel="stylesheet" href="ifo-base.css">
 </head>
 <body>
   <div id="ifo-unabyss-review">

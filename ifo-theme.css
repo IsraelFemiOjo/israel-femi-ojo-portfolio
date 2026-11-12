@@ -3,7 +3,7 @@
    flat rounded controls and the ballpoint blue as the one accent. */
 
 #ifo-content-strategy, #ifo-launch-brief, #ifo-unabyss-review, #ifo-quso-review {
-  --ifo-paper: #EDE9E0; --ifo-fold: #DEDACF; --ifo-ink: #121318; --ifo-muted: #585A64;
+  --ifo-paper: #EDE9E0; --ifo-fold: var(--band); --ifo-ink: #121318; --ifo-muted: #585A64;
   --ifo-rule: #C9C4B8; --ifo-ballpoint: #2234C4;
 }
 #ifo-content-strategy { --cs-page: var(--ifo-paper); --cs-band: var(--ifo-fold); --cs-ink: var(--ifo-ink); --cs-muted: var(--ifo-muted); --cs-border: var(--ifo-rule); --cs-glass: var(--ifo-paper); }
@@ -45,9 +45,9 @@ h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
 }
 @media (hover: hover) {
   :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { transform: none !important; background: transparent !important; }
-  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover::before { width: 8px; margin-right: 10px; transform: scale(1); }
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover::before { width: 8px; margin-right: 8px; transform: scale(1); }
 }
-:is(.cs-link, .lb-link, .ur-link, .qr-link):active { transform: scale(.96) !important; background: #DEDACF !important; }
+:is(.cs-link, .lb-link, .ur-link, .qr-link):active { transform: scale(.96) !important; background: var(--band) !important; }
 
 /* screenshot and image frames: real UI gets the 6px card radius, no glass */
 :is(.cs-image-frame, .lb-image-frame, .ur-image-frame, .qr-image-frame, .mv-frame) {
@@ -77,7 +77,7 @@ h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
 /* calm buttons: no hover dot, just a quiet fill */
 :is(.cs-link, .lb-link, .ur-link, .qr-link)::before { content: none !important; display: none !important; }
 @media (hover: hover) {
-  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: #E3DFD6 !important; }
+  :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: var(--paper-hover) !important; }
 }
 
 /* section bands: no solid fill, so the floating objects never get sliced by a band edge; a hairline keeps the rhythm */
@@ -87,4 +87,4 @@ h1:is(.cs-heading, .lb-heading, .ur-heading, .qr-heading)::after {
 }
 /* outline buttons sit on solid paper so text scrolling behind them never shows through */
 :is(.cs-link, .lb-link, .ur-link, .qr-link) { background: #EDE9E0 !important; }
-@media (hover: hover) { :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: #E3DFD6 !important; } }
+@media (hover: hover) { :is(.cs-link, .lb-link, .ur-link, .qr-link):hover { background: var(--paper-hover) !important; } }

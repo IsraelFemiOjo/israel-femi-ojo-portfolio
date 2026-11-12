@@ -38,14 +38,14 @@ html {
   scroll-padding-bottom: calc(112px + env(safe-area-inset-bottom));
 }
 
-body { margin: 0; background: #fafafa; }
+body { margin: 0; background: #EDE9E0; }
 body.qr-reading { overflow: hidden; }
 
 #ifo-quso-review {
-  --qr-page: #fafafa;
-  --qr-band: #eff1f1;
-  --qr-ink: #171717;
-  --qr-muted: #626262;
+  --qr-page: #EDE9E0;
+  --qr-band: var(--band);
+  --qr-ink: #121318;
+  --qr-muted: #585A64;
   --qr-border: rgba(24, 24, 24, 0.12);
   --qr-glass: rgba(255, 255, 255, 0.69);
   --qr-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -138,7 +138,7 @@ body.qr-reading { overflow: hidden; }
 #ifo-quso-review figcaption p + p { margin-top: 12px; }
 #ifo-quso-review .qr-source { color: inherit; text-underline-offset: 3px; }
 #ifo-quso-review .qr-objective { max-width: 53ch; margin: 28px auto 0; }
-#ifo-quso-review .qr-objective h2 { margin: 0; font-size: 15px; font-weight: 500; }
+#ifo-quso-review .qr-objective h2 { margin: 0; font-size: 16px; font-weight: 500; }
 #ifo-quso-review .qr-objective p { margin: 9px auto 0; color: var(--qr-muted); }
 #ifo-quso-review .qr-objective .qr-review-note { margin-top: 12px; font-size: 12px; }
 #ifo-quso-review .qr-band { background: var(--qr-band); }
@@ -212,7 +212,7 @@ body.qr-reading { overflow: hidden; }
 }
 
 #ifo-quso-review .qr-link:active { transform: translateY(1px) scale(0.985); }
-#ifo-quso-review :is(a, button, [tabindex]):focus-visible { outline: 3px solid #737d83; outline-offset: 4px; }
+#ifo-quso-review :is(a, button, [tabindex]):focus-visible { outline: 3px solid #121318; outline-offset: 4px; }
 #ifo-quso-review .qr-link:disabled { opacity: 0.45; cursor: default; transform: none; }
 
 #ifo-quso-review .qr-footer {
@@ -256,7 +256,7 @@ body.qr-reading { overflow: hidden; }
 }
 
 #ifo-quso-review .qr-reader-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-#ifo-quso-review .qr-reader-header h2 { margin: 0; font-size: 15px; font-weight: 500; }
+#ifo-quso-review .qr-reader-header h2 { margin: 0; font-size: 16px; font-weight: 500; }
 #ifo-quso-review .qr-reader-controls { display: flex; justify-content: center; align-items: center; gap: 12px; }
 #ifo-quso-review .qr-reader-controls .qr-link { padding-inline: 12px; }
 #ifo-quso-review #qr-reader-scale { min-width: 4ch; font-size: 13px; }
@@ -326,6 +326,7 @@ body.qr-reading { overflow: hidden; }
 </style>
 <link rel="stylesheet" href="ifo-theme.css">
 <link rel="stylesheet" href="ifo-float.css">
+<link rel="stylesheet" href="ifo-base.css">
 </head>
 <body>
   <div id="ifo-quso-review">

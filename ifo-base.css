@@ -1,0 +1,39 @@
+/* IFO: base system, shared by every page.
+   Five colour tokens, one type scale, one spacing scale. Everything else is derived from these. */
+:root{
+  /* colour: the five tokens */
+  --ink:#121318;
+  --paper:#EDE9E0;
+  --ballpoint:#2234C4;
+  --muted:#585A64;
+  --line:#C9C4B8;
+  /* derived from the tokens, not new colours */
+  --ballpoint-on-ink:#8C98FF;                                   /* the same blue, lifted for dark backgrounds */
+  --band:color-mix(in srgb,var(--ink) 7%,var(--paper));
+  --paper-hover:color-mix(in srgb,var(--ink) 5%,var(--paper));
+  --ink-hover:color-mix(in srgb,var(--paper) 10%,var(--ink));
+
+  /* type scale (px): small text to section headings; display headings use clamp() */
+  --fs-xs:11px; --fs-s:12px; --fs-sm:13px; --fs-m:14px; --fs-ml:16px; --fs-l:18px; --fs-xl:20px; --fs-2xl:24px; --fs-3xl:30px;
+
+  /* spacing scale (px), on a 4px grid */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-7:28px; --sp-8:32px; --sp-10:40px; --sp-14:56px; --sp-16:64px;
+}
+
+/* keyboard focus: one clear ring everywhere */
+:where(a,button,[role="tab"],[tabindex]:not([tabindex="-1"])):focus-visible{outline:2px solid var(--ink)!important;outline-offset:3px!important;border-radius:6px}
+
+/* tap targets: at least 44px */
+.mv-tab,.hub-tabs [role="tab"]{min-height:44px!important}
+:is(.logo,.cs-logo,.hub-logo,.ur-logo,.qr-logo,.lb-logo){position:relative}
+:is(.logo,.cs-logo,.hub-logo,.ur-logo,.qr-logo,.lb-logo)::after{content:"";position:absolute;left:-8px;right:-8px;top:50%;height:44px;transform:translateY(-50%)}
+
+/* reduced motion: no movement, content still appears */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+/* home: main buttons, work list and the email link */
+.pill{min-height:44px!important;display:inline-flex!important;align-items:center}
+.work-link{min-height:44px!important}
+.contact-mail{position:relative;display:inline-block}
+.contact-mail::after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:44px;transform:translateY(-50%)}
