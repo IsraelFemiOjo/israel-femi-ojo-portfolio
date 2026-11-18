@@ -594,25 +594,10 @@
   .socials .icon svg{width:14px!important;height:14px!important}
   .socials .icon::after{content:"";position:absolute;inset:-7px;border-radius:50%}
   @media (min-width:1024px){.socials{gap:16px!important}.socials .icon{width:32px!important;height:32px!important;font-size:12px!important}.socials .icon svg{width:15px!important;height:15px!important}.socials .icon::after{inset:-6px}}
-  /* work list: preview, name and one result per row */
-  #work .work-list{align-items:stretch;width:min(680px,100%);gap:10px}
-  #work .work-link{display:grid!important;grid-template-columns:auto 72px 1fr auto;align-items:center;gap:14px;width:100%;
-    border-radius:14px;padding:10px 16px 10px 14px;text-align:left;font-size:inherit!important;min-height:76px!important}
-  #work .work-thumb{width:72px;height:54px;object-fit:cover;border-radius:6px;display:block;background:var(--band);border:1px solid var(--line)}
-  #work .work-text{display:flex;flex-direction:column;gap:3px;min-width:0}
-  #work .work-name{font-family:"Archivo",system-ui,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
-  #work .work-result{font-size:13px;line-height:1.35;color:var(--muted)}
-  #work .work-arrow{font-size:16px;color:var(--muted);transition:transform 220ms var(--ease),color 220ms var(--ease)}
-  @media (hover:hover){#work .work-link:hover .work-arrow{transform:translateX(3px);color:var(--ink)}}
-  @media (min-width:1024px){#work .work-link{grid-template-columns:auto 96px 1fr auto;gap:20px;padding:12px 22px 12px 18px}
-    #work .work-thumb{width:96px;height:72px}#work .work-name{font-size:22px}#work .work-result{font-size:14px}}
-  @media (max-width:420px){#work .work-link{grid-template-columns:auto 60px 1fr;gap:12px;padding:10px 12px}#work .work-arrow{display:none}
-    #work .work-thumb{width:60px;height:45px}#work .work-name{font-size:16px}#work .work-result{font-size:12px}}
-  @media (max-height:700px) and (min-width:600px){#work .work-link{min-height:60px!important;padding-top:6px;padding-bottom:6px}#work .work-thumb{width:64px;height:48px}#work .work-list{gap:6px}}
   /* intro: small images inside the sentence */
   .intro-block{margin:8px 0 40px}
   .intro-line{font-family:"Newsreader",Georgia,serif;font-size:24px;line-height:1.45;letter-spacing:-.01em;color:var(--ink);max-width:30ch}
-  .intro-line .inl{display:inline-block;width:1.7em;height:1.05em;object-fit:cover;border-radius:5px;vertical-align:-.16em;margin:0 .08em;border:1px solid var(--line)}
+  .intro-line .inl{display:inline-block;width:2.2em;height:1.375em;object-fit:cover;border-radius:6px;vertical-align:-.36em;margin:0 .1em;border:1px solid var(--line);background:#fff}
   @media (min-width:768px){.intro-line{font-size:32px;max-width:28ch}}
   @media (min-width:1024px){.intro-line{font-size:38px}.intro-block{margin-bottom:56px}}
   /* how I work: four steps, revealed one at a time as you scroll */
@@ -679,11 +664,11 @@
       <div class="work-inner">
         <h1 class="work-title">Selected work</h1>
         <ol class="work-list">
-          <li><a class="glass work-link" href="content.html" aria-label="Open the content strategy page"><span class="work-number">01</span><img class="work-thumb" src="assets/thumbs/content.webp" alt="" width="240" height="180" loading="lazy" decoding="async"><span class="work-text"><span class="work-name">Content strategy</span><span class="work-result">105M+ X impressions for two AI creator accounts</span></span><span class="work-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="glass work-link" href="reviews.html" aria-label="Open the product reviews"><span class="work-number">02</span><img class="work-thumb" src="assets/thumbs/reviews.webp" alt="" width="240" height="180" loading="lazy" decoding="async"><span class="work-text"><span class="work-name">Product reviews</span><span class="work-result">Founder-facing reviews; one put a fix into development at Unabyss</span></span><span class="work-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="glass work-link" href="research.html" aria-label="Open research and experiments, including the AI launch brief"><span class="work-number">03</span><img class="work-thumb" src="assets/thumbs/research.webp" alt="" width="240" height="180" loading="lazy" decoding="async"><span class="work-text"><span class="work-name">Research &amp; experiments</span><span class="work-result">Three AI models, one 100-point launch-brief test</span></span><span class="work-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="glass work-link" href="motion.html" aria-label="Open the motion and video page"><span class="work-number">04</span><img class="work-thumb" src="assets/thumbs/motion.webp" alt="" width="240" height="180" loading="lazy" decoding="async"><span class="work-text"><span class="work-name">Motion and video</span><span class="work-result">547.7K TikTok views in the first 28 days</span></span><span class="work-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="glass work-link" href="products.html" aria-label="Open the products page"><span class="work-number">05</span><img class="work-thumb" src="assets/thumbs/products.webp" alt="" width="240" height="180" loading="lazy" decoding="async"><span class="work-text"><span class="work-name">Products</span><span class="work-result">Two browser games and a school portal, live</span></span><span class="work-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="glass work-link" href="content.html" aria-label="Open the content strategy page"><span class="work-number">01</span><span>Content strategy</span></a></li>
+          <li><a class="glass work-link" href="reviews.html" aria-label="Open the product reviews"><span class="work-number">02</span><span>Product reviews</span></a></li>
+          <li><a class="glass work-link" href="research.html" aria-label="Open research and experiments, including the AI launch brief"><span class="work-number">03</span><span>Research &amp; experiments</span></a></li>
+          <li><a class="glass work-link" href="motion.html" aria-label="Open the motion and video page"><span class="work-number">04</span><span>Motion and video</span></a></li>
+          <li><a class="glass work-link" href="products.html" aria-label="Open the products page"><span class="work-number">05</span><span>Products</span></a></li>
         </ol>
       </div>
     </div>
@@ -698,7 +683,7 @@
         <h1 class="skills-page-title">Skills &amp; experience</h1>
 
         <section class="intro-block skill-reveal" data-skill-reveal aria-label="What I do">
-          <p class="intro-line">I write X content <img class="inl" src="assets/thumbs/i-write.webp" alt="" width="144" height="90" loading="lazy" decoding="async"> for AI and tech creators, make short videos <img class="inl" src="assets/thumbs/i-video.webp" alt="" width="144" height="90" loading="lazy" decoding="async"> that explain how tech works, review products <img class="inl" src="assets/thumbs/i-review.webp" alt="" width="144" height="90" loading="lazy" decoding="async"> and tell founders what to fix, and build small products <img class="inl" src="assets/thumbs/i-build.webp" alt="" width="144" height="90" loading="lazy" decoding="async"> people can try.</p>
+          <p class="intro-line">I write X content <img class="inl" src="assets/thumbs/i-write.webp" alt="" width="192" height="120" loading="lazy" decoding="async"> for AI and tech creators, make short videos <img class="inl" src="assets/thumbs/i-video.webp" alt="" width="192" height="120" loading="lazy" decoding="async"> that explain how tech works, review products <img class="inl" src="assets/thumbs/i-review.webp" alt="" width="192" height="120" loading="lazy" decoding="async"> and tell founders what to fix, and build small products <img class="inl" src="assets/thumbs/i-build.webp" alt="" width="192" height="120" loading="lazy" decoding="async"> people can try.</p>
         </section>
 
         <section class="skills-block process-block" aria-labelledby="process-heading">
