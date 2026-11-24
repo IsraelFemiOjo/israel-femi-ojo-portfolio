@@ -603,13 +603,12 @@
   /* how I work: four steps, revealed one at a time as you scroll */
   .process-block{margin-bottom:40px}
   .process{list-style:none;display:grid;gap:12px}
-  .process li{display:grid;grid-template-columns:40px 1fr;column-gap:12px;row-gap:4px;padding:16px 0;border-top:1px solid var(--line)}
-  .process li:last-child{border-bottom:1px solid var(--line)}
+  .process li{display:grid;grid-template-columns:40px 1fr;column-gap:12px;row-gap:4px;padding:14px 0}
   .process li:nth-child(2){--reveal-delay:90ms}.process li:nth-child(3){--reveal-delay:180ms}.process li:nth-child(4){--reveal-delay:270ms}
   .process .step-n{grid-row:span 2;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--ballpoint);padding-top:5px}
   .process h3{font-family:"Archivo",system-ui,sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;line-height:1.2}
   .process p{font-size:15px;line-height:1.5;color:var(--muted);max-width:52ch}
-  @media (min-width:900px){.process{grid-template-columns:repeat(4,1fr);gap:24px}.process li{grid-template-columns:1fr;border-bottom:1px solid var(--line)}.process .step-n{grid-row:auto}}
+  @media (min-width:900px){.process{grid-template-columns:repeat(4,1fr);gap:24px}.process li{grid-template-columns:1fr}.process .step-n{grid-row:auto}}
   /* floating objects step back while they sit over text */
   .fl{transition:opacity 420ms var(--ease)}
   .fl.over-text{opacity:.06!important}
